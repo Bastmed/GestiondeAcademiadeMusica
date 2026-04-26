@@ -150,7 +150,6 @@
             Controls.Add(dgvAlumnos);
             Name = "Uc_Alumnos";
             Size = new Size(934, 431);
-            Load += Uc_Alumnos_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAlumnos).EndInit();
             ((System.ComponentModel.ISupportInitialize)alumnoBindingSource).EndInit();
             ResumeLayout(false);

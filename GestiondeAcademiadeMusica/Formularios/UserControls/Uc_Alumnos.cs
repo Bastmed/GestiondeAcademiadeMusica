@@ -21,22 +21,16 @@ namespace GestiondeAcademiadeMusica.Forms
             cargarDatos();
 
         }
-
-        private void Uc_Alumnos_Load(object sender, EventArgs e)
+        private void cargarDatos()
         {
-
+            dgvAlumnos.DataSource = null;
+            dgvAlumnos.DataSource = repo.Alumnos;
         }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             var formAlumno = new AgregarAlumno(repo);
             formAlumno.Show();
             cargarDatos();
-        }
-        private void cargarDatos()
-        {
-            dgvAlumnos.DataSource = null;
-            dgvAlumnos.DataSource = repo.Alumnos;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

@@ -104,6 +104,7 @@
             btnInstrumentos.TabIndex = 3;
             btnInstrumentos.Text = "Instrumentos";
             btnInstrumentos.UseVisualStyleBackColor = true;
+            btnInstrumentos.Click += btnInstrumentos_Click;
             // 
             // btnAlumnos
             // 

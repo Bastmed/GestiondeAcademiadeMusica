@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestiondeAcademiadeMusica.Forms;
+using GestiondeAcademiadeMusica.Forms.UserControls;
 
 
 namespace GestiondeAcademiadeMusica
@@ -16,15 +17,17 @@ namespace GestiondeAcademiadeMusica
     {
         private AcademiaRepositorio repo;
         private Uc_Alumnos ucAlumnos;
+        private Uc_Instrumentos ucInstrumentos;
 
         public MenuPrincipal()
         {
             InitializeComponent();
             repo = new AcademiaRepositorio();
             ucAlumnos = new Uc_Alumnos(repo);
+            ucInstrumentos = new Uc_Instrumentos(repo);
 
             ucAlumnos.Dock = DockStyle.Fill;
-
+            ucInstrumentos.Dock = DockStyle.Fill;
         }
         private void MostrarControl(UserControl control)
         {
@@ -32,7 +35,7 @@ namespace GestiondeAcademiadeMusica
             pnlContenedor.Controls.Add(control);
         }
 
-        
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             var formAlumno = new AgregarAlumno(repo);
@@ -48,6 +51,11 @@ namespace GestiondeAcademiadeMusica
         private void btnAlumnos_Click(object sender, EventArgs e)
         {
             MostrarControl(ucAlumnos);
+        }
+
+        private void btnInstrumentos_Click(object sender, EventArgs e)
+        {
+            MostrarControl(ucInstrumentos);
         }
     }
 }
