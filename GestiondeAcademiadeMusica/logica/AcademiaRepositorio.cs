@@ -1,10 +1,12 @@
-﻿namespace GestiondeAcademiadeMusica
+﻿using System.ComponentModel;
+
+namespace GestiondeAcademiadeMusica
 {
     public class AcademiaRepositorio
     {
-        public List<Instrumento> Instrumentos = new List<Instrumento>();
-        public List<Alumno> Alumnos = new List<Alumno>();
-        public List<Profesor> Profesores = new List<Profesor>();
+        public BindingList<Instrumento> Instrumentos { get; } = new BindingList<Instrumento>();
+        public BindingList<Alumno> Alumnos { get; } = new BindingList<Alumno>();
+        public BindingList<Profesor> Profesores { get; } = new BindingList<Profesor>();
 
         private int _nextIdInstrumento = 1;
         private int _nextIdAlumno = 1;
@@ -25,14 +27,21 @@
 
         public void ActualizarInstrumento(Instrumento i)
         {
-            int idx = Instrumentos.FindIndex(x => x.IdInstrumento == i.IdInstrumento);
-            if (idx >= 0)
-                Instrumentos[idx] = i;
+            var existing = Instrumentos.FirstOrDefault(x => x.IdInstrumento == i.IdInstrumento);
+            if (existing != null)
+            {
+                existing.Nombre = i.Nombre;
+                existing.Categoria = i.Categoria;
+                existing.Marca = i.Marca;
+                existing.PrecioMensual = i.PrecioMensual;
+                existing.Estado = i.Estado;
+            }
         }
 
         public void EliminarInstrumento(int id)
         {
-            Instrumentos.RemoveAll(x => x.IdInstrumento == id);
+            var item = Instrumentos.FirstOrDefault(x => x.IdInstrumento == id);
+            if (item != null) Instrumentos.Remove(item);
         }
 
         // ALUMNOS
@@ -45,14 +54,23 @@
 
         public void ActualizarAlumno(Alumno a)
         {
-            int idx = Alumnos.FindIndex(x => x.IdAlumno == a.IdAlumno);
-            if (idx >= 0)
-                Alumnos[idx] = a;
+            var existing = Alumnos.FirstOrDefault(x => x.IdAlumno == a.IdAlumno);
+            if (existing != null)
+            {
+                existing.Nombre = a.Nombre;
+                existing.Apellido = a.Apellido;
+                existing.FechaNacimiento = a.FechaNacimiento;
+                existing.Telefono = a.Telefono;
+                existing.Email = a.Email;
+                existing.Activo = a.Activo;
+                existing.IdInstrumento = a.IdInstrumento;
+            }
         }
 
         public void EliminarAlumno(int id)
         {
-            Alumnos.RemoveAll(x => x.IdAlumno == id);
+            var item = Alumnos.FirstOrDefault(x => x.IdAlumno == id);
+            if (item != null) Alumnos.Remove(item);
         }
 
         // PROFESORES
@@ -65,14 +83,23 @@
 
         public void ActualizarProfesor(Profesor p)
         {
-            int idx = Profesores.FindIndex(x => x.IdProfesor == p.IdProfesor);
-            if (idx >= 0)
-                Profesores[idx] = p;
+            var existing = Profesores.FirstOrDefault(x => x.IdProfesor == p.IdProfesor);
+            if (existing != null)
+            {
+                existing.Nombre = p.Nombre;
+                existing.Apellido = p.Apellido;
+                existing.Telefono = p.Telefono;
+                existing.Email = p.Email;
+                existing.Especialidad = p.Especialidad;
+                existing.TarifaHora = p.TarifaHora;
+                existing.Activo = p.Activo;
+            }
         }
 
         public void EliminarProfesor(int id)
         {
-            Profesores.RemoveAll(x => x.IdProfesor == id);
+            var item = Profesores.FirstOrDefault(x => x.IdProfesor == id);
+            if (item != null) Profesores.Remove(item);
         }
 
         private void CargarDatosEjemplo()
@@ -82,7 +109,7 @@
 
             AgregarProfesor(new Profesor { Nombre = "Carlos", Apellido = "Mendoza", Telefono = "912345678", Email = "carlos@academia.cl", Especialidad = "Guitarra", TarifaHora = 15000 });
 
-            AgregarAlumno(new Alumno { Nombre = "Pedro", Apellido = "González", Telefono = "911111111", Email = "pedro@mail.com", FechaNacimiento = new DateTime(2005, 3, 12), IdInstrumento = 1 });
+            AgregarAlumno(new Alumno { Nombre = "Pedro", Apellido = "González", Telefono = "911111111", FechaNacimiento = new DateTime(2005, 3, 12), Email = "pedro@mail.com", Activo = true, IdInstrumento = 1 });
         }
     }
 }

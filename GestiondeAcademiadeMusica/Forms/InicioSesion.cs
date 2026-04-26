@@ -1,8 +1,8 @@
 namespace GestiondeAcademiadeMusica
 {
-    public partial class Form1 : Form
+    public partial class InicioSesion : Form
     {
-        public Form1()
+        public InicioSesion()
         {
             InitializeComponent();
         }
@@ -10,12 +10,12 @@ namespace GestiondeAcademiadeMusica
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
             String usuario = "webo";
-            String contraseña = "del1al8";
+            String contraseña = "123";
 
             if (txtNombreUsuario.Text == usuario && txtContraseñaUsuario.Text == contraseña)
             {
                 MessageBox.Show("¡Inicio de sesión exitoso!");
-                Form2 form2 = new Form2();
+                MenuPrincipal form2 = new MenuPrincipal();
                 form2.Show();
                 this.Hide();
             }
