@@ -47,66 +47,69 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(65, 106);
+            txtNombre.Location = new Point(57, 80);
+            txtNombre.Margin = new Padding(3, 2, 3, 2);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(125, 27);
+            txtNombre.Size = new Size(110, 23);
             txtNombre.TabIndex = 0;
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(65, 187);
+            txtApellido.Location = new Point(57, 140);
+            txtApellido.Margin = new Padding(3, 2, 3, 2);
             txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(125, 27);
+            txtApellido.Size = new Size(110, 23);
             txtApellido.TabIndex = 1;
-            
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(65, 276);
+            txtTelefono.Location = new Point(57, 207);
+            txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(125, 27);
+            txtTelefono.Size = new Size(110, 23);
             txtTelefono.TabIndex = 2;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(65, 356);
+            txtEmail.Location = new Point(57, 267);
+            txtEmail.Margin = new Padding(3, 2, 3, 2);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(125, 27);
+            txtEmail.Size = new Size(110, 23);
             txtEmail.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(67, 54);
+            label1.Location = new Point(59, 40);
             label1.Name = "label1";
-            label1.Size = new Size(64, 20);
+            label1.Size = new Size(51, 15);
             label1.TabIndex = 4;
             label1.Text = "Nombre";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(67, 150);
+            label2.Location = new Point(59, 112);
             label2.Name = "label2";
-            label2.Size = new Size(66, 20);
+            label2.Size = new Size(51, 15);
             label2.TabIndex = 5;
             label2.Text = "Apellido";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(65, 239);
+            label3.Location = new Point(57, 179);
             label3.Name = "label3";
-            label3.Size = new Size(67, 20);
+            label3.Size = new Size(52, 15);
             label3.TabIndex = 6;
             label3.Text = "Telefono";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(65, 322);
+            label4.Location = new Point(57, 242);
             label4.Name = "label4";
-            label4.Size = new Size(46, 20);
+            label4.Size = new Size(36, 15);
             label4.TabIndex = 7;
             label4.Text = "Email";
             // 
@@ -114,69 +117,73 @@
             // 
             cmbEspecialidad.FormattingEnabled = true;
             cmbEspecialidad.Items.AddRange(new object[] { "Canto", "Guitarra", "Piano", "Batería", "Violín" });
-            cmbEspecialidad.Location = new Point(290, 104);
+            cmbEspecialidad.Location = new Point(254, 78);
+            cmbEspecialidad.Margin = new Padding(3, 2, 3, 2);
             cmbEspecialidad.Name = "cmbEspecialidad";
-            cmbEspecialidad.Size = new Size(151, 28);
+            cmbEspecialidad.Size = new Size(133, 23);
             cmbEspecialidad.TabIndex = 8;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(290, 54);
+            label5.Location = new Point(254, 40);
             label5.Name = "label5";
-            label5.Size = new Size(93, 20);
+            label5.Size = new Size(72, 15);
             label5.TabIndex = 9;
             label5.Text = "Especialidad";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(520, 54);
+            label6.Location = new Point(455, 40);
             label6.Name = "label6";
-            label6.Size = new Size(45, 20);
+            label6.Size = new Size(35, 15);
             label6.TabIndex = 10;
             label6.Text = "Tarifa";
             // 
             // txtTarifa
             // 
-            txtTarifa.Location = new Point(511, 105);
+            txtTarifa.Location = new Point(447, 79);
+            txtTarifa.Margin = new Padding(3, 2, 3, 2);
             txtTarifa.Name = "txtTarifa";
-            txtTarifa.Size = new Size(125, 27);
+            txtTarifa.Size = new Size(110, 23);
             txtTarifa.TabIndex = 11;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(511, 187);
+            label7.Location = new Point(447, 140);
             label7.Name = "label7";
-            label7.Size = new Size(51, 20);
+            label7.Size = new Size(41, 15);
             label7.TabIndex = 12;
             label7.Text = "Activo";
             // 
             // chkActivo
             // 
             chkActivo.AutoSize = true;
-            chkActivo.Location = new Point(520, 221);
+            chkActivo.Location = new Point(455, 166);
+            chkActivo.Margin = new Padding(3, 2, 3, 2);
             chkActivo.Name = "chkActivo";
-            chkActivo.Size = new Size(18, 17);
+            chkActivo.Size = new Size(15, 14);
             chkActivo.TabIndex = 13;
             chkActivo.UseVisualStyleBackColor = true;
             // 
             // btnEnviar
             // 
-            btnEnviar.Location = new Point(511, 294);
+            btnEnviar.Location = new Point(447, 220);
+            btnEnviar.Margin = new Padding(3, 2, 3, 2);
             btnEnviar.Name = "btnEnviar";
-            btnEnviar.Size = new Size(94, 29);
+            btnEnviar.Size = new Size(82, 22);
             btnEnviar.TabIndex = 14;
             btnEnviar.Text = "Enviar";
             btnEnviar.UseVisualStyleBackColor = true;
-            
+            btnEnviar.Click += btnEnviar_Click;
             // 
             // AgregarProfesor
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(btnEnviar);
             Controls.Add(chkActivo);
             Controls.Add(label7);
@@ -192,6 +199,7 @@
             Controls.Add(txtTelefono);
             Controls.Add(txtApellido);
             Controls.Add(txtNombre);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AgregarProfesor";
             Text = "AgregarProfesor";
             ResumeLayout(false);

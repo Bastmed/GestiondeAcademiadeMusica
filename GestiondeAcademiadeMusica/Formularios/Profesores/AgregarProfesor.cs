@@ -26,7 +26,7 @@ namespace GestiondeAcademiadeMusica.Forms.Profesores
             ProfesorActual = new Profesor();
         }
 
-        
+
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
@@ -65,7 +65,8 @@ namespace GestiondeAcademiadeMusica.Forms.Profesores
             return ok;
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+
+        private void btnEnviar_Click(object sender, EventArgs e)
         {
             if (!Validar()) return;
 
