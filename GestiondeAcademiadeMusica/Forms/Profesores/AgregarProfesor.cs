@@ -8,60 +8,76 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GestiondeAcademiadeMusica.Forms.Profesores
+namespace GestiondeAcademiadeMusica.Forms.Profesores 
 {
     public partial class AgregarProfesor : Form
     {
-        
-        private AcademiaRepositorio _repositorio;
+        private readonly AcademiaRepositorio repo;
+        public Profesor ProfesorActual { get; private set; }
 
-        
-        public AgregarProfesor(AcademiaRepositorio repo)
+        public AgregarProfesor()
         {
             InitializeComponent();
-            _repositorio = repo; 
         }
 
+        public AgregarProfesor(AcademiaRepositorio repo) : this()
+        {
+            this.repo = repo ?? throw new ArgumentNullException(nameof(repo));
+            ProfesorActual = new Profesor();
+        }
+
+        
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-                                              
+
         }
 
-        private void btnEnviar_Click(object sender, EventArgs e)
+        private bool Validar()
         {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                string.IsNullOrWhiteSpace(txtTelefono.Text) ||
-                string.IsNullOrWhiteSpace(txtEmail.Text) ||
-                string.IsNullOrWhiteSpace(cmbEspecialidad.Text) ||
-                string.IsNullOrWhiteSpace(txtTarifa.Text))
+            bool ok = true;
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
-                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                MessageBox.Show("Nombre obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ok = false;
+            }
+            if (string.IsNullOrWhiteSpace(txtApellido.Text))
+            {
+                MessageBox.Show("Apellido obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ok = false;
+            }
+            if (!string.IsNullOrWhiteSpace(txtEmail.Text) && !txtEmail.Text.Contains("@"))
+            {
+                MessageBox.Show("Email inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ok = false;
+            }
+            if (string.IsNullOrWhiteSpace(cmbEspecialidad.Text))
+            {
+                MessageBox.Show("Especialidad obligatoria", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ok = false;
             }
 
             decimal tarifaValidada;
-            if (!decimal.TryParse(txtTarifa.Text, out tarifaValidada))
+            if (string.IsNullOrWhiteSpace(txtTarifa.Text) || !decimal.TryParse(txtTarifa.Text, out tarifaValidada))
             {
-                MessageBox.Show("La tarifa debe ser un número válido (ejemplo: 15000 o 15000,50).", "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("La tarifa debe ser un número válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ok = false;
             }
+            return ok;
+        }
 
-            Profesor nuevoProfesor = new Profesor
-            {
-                Nombre = txtNombre.Text,
-                Apellido = txtApellido.Text,
-                Telefono = txtTelefono.Text,
-                Email = txtEmail.Text,
-                Especialidad = cmbEspecialidad.Text,
-                TarifaHora = tarifaValidada,
-                Activo = chkActivo.Checked
-            };
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (!Validar()) return;
 
-            
-            _repositorio.AgregarProfesor(nuevoProfesor);
+            ProfesorActual.Nombre = txtNombre.Text.Trim();
+            ProfesorActual.Apellido = txtApellido.Text.Trim();
+            ProfesorActual.Telefono = txtTelefono.Text.Trim();
+            ProfesorActual.Email = txtEmail.Text.Trim();
+            ProfesorActual.Especialidad = cmbEspecialidad.Text.Trim();
+            ProfesorActual.TarifaHora = decimal.Parse(txtTarifa.Text.Trim());
+            ProfesorActual.Activo = chkActivo.Checked;
 
-            MessageBox.Show("¡Profesor agregado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            repo.AgregarProfesor(ProfesorActual);
 
             this.DialogResult = DialogResult.OK;
             this.Close();

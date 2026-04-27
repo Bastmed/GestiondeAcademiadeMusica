@@ -58,7 +58,7 @@
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(125, 27);
             txtApellido.TabIndex = 1;
-            txtApellido.TextChanged += textBox2_TextChanged;
+            
             // 
             // txtTelefono
             // 

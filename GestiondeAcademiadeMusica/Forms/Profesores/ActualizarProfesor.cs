@@ -8,29 +8,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace GestiondeAcademiadeMusica.Forms.Profesores
 {
     public partial class ActualizarProfesor : Form
     {
-        private AcademiaRepositorio _repositorio;
-        private Profesor _profesorAEditar;
+        
+        private readonly AcademiaRepositorio repo;
+        private readonly Profesor profesor;
 
         
-        public ActualizarProfesor(AcademiaRepositorio repo, Profesor profesor)
+        public ActualizarProfesor()
         {
             InitializeComponent();
-            _repositorio = repo;
-            _profesorAEditar = profesor;
+        }
 
-            
-            txtNombre.Text = _profesorAEditar.Nombre;
-            txtApellido.Text = _profesorAEditar.Apellido;
-            txtTelefono.Text = _profesorAEditar.Telefono;
-            txtEmail.Text = _profesorAEditar.Email;
-            cmbEspecialidad.Text = _profesorAEditar.Especialidad;
-            txtTarifa.Text = _profesorAEditar.TarifaHora.ToString();
-            chkActivo.Checked = _profesorAEditar.Activo;
+        public ActualizarProfesor(AcademiaRepositorio repo, Profesor profesor) : this()
+        {
+            this.repo = repo;
+            this.profesor = profesor;
+
+            txtNombre.Text = profesor.Nombre;
+            txtApellido.Text = profesor.Apellido;
+            txtTelefono.Text = profesor.Telefono;
+            txtEmail.Text = profesor.Email;
+            cmbEspecialidad.Text = profesor.Especialidad;
+            txtTarifa.Text = profesor.TarifaHora.ToString();
+            chkActivo.Checked = profesor.Activo;
         }
 
         
@@ -43,41 +46,59 @@ namespace GestiondeAcademiadeMusica.Forms.Profesores
         }
 
         
+        private bool Validar()
+        {
+            bool ok = true;
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("Nombre obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ok = false;
+            }
+            if (string.IsNullOrWhiteSpace(txtApellido.Text))
+            {
+                MessageBox.Show("Apellido obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ok = false;
+            }
+            
+            if (!string.IsNullOrWhiteSpace(txtEmail.Text) && !txtEmail.Text.Contains("@"))
+            {
+                MessageBox.Show("Email inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ok = false;
+            }
+            if (string.IsNullOrWhiteSpace(cmbEspecialidad.Text))
+            {
+                MessageBox.Show("Especialidad obligatoria", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ok = false;
+            }
+            
+            decimal tarifaValidada;
+            if (string.IsNullOrWhiteSpace(txtTarifa.Text) || !decimal.TryParse(txtTarifa.Text, out tarifaValidada))
+            {
+                MessageBox.Show("La tarifa debe ser un número válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ok = false;
+            }
+
+            return ok;
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                string.IsNullOrWhiteSpace(txtTelefono.Text) ||
-                string.IsNullOrWhiteSpace(txtEmail.Text) ||
-                string.IsNullOrWhiteSpace(cmbEspecialidad.Text) ||
-                string.IsNullOrWhiteSpace(txtTarifa.Text))
-            {
-                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            if (!Validar()) return;
 
             
-            decimal tarifaValidada;
-            if (!decimal.TryParse(txtTarifa.Text, out tarifaValidada))
-            {
-                MessageBox.Show("La tarifa debe ser un número válido (ejemplo: 15000 o 15000,50).", "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            profesor.Nombre = txtNombre.Text.Trim();
+            profesor.Apellido = txtApellido.Text.Trim();
+            profesor.Telefono = txtTelefono.Text.Trim();
+            profesor.Email = txtEmail.Text.Trim();
+            profesor.Especialidad = cmbEspecialidad.Text.Trim();
+            profesor.TarifaHora = decimal.Parse(txtTarifa.Text.Trim());
+            profesor.Activo = chkActivo.Checked;
+
+            repo.ActualizarProfesor(profesor);
 
             
-            _profesorAEditar.Nombre = txtNombre.Text;
-            _profesorAEditar.Apellido = txtApellido.Text;
-            _profesorAEditar.Telefono = txtTelefono.Text;
-            _profesorAEditar.Email = txtEmail.Text;
-            _profesorAEditar.Especialidad = cmbEspecialidad.Text;
-            _profesorAEditar.TarifaHora = tarifaValidada;
-            _profesorAEditar.Activo = chkActivo.Checked;
-
-            
-            _repositorio.ActualizarProfesor(_profesorAEditar);
-
-            MessageBox.Show("¡Profesor actualizado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Profesor actualizado correctamente.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.DialogResult = DialogResult.OK;
             this.Close();

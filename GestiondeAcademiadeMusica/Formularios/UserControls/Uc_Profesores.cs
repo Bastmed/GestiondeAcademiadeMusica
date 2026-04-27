@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestiondeAcademiadeMusica.Forms.Profesores;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,92 +8,66 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GestiondeAcademiadeMusica.Forms.Profesores; 
+
 namespace GestiondeAcademiadeMusica.Forms.UserControls
 {
     public partial class Uc_Profesores : UserControl
     {
+        private AcademiaRepositorio repo;
 
-        private AcademiaRepositorio _repositorio;
-
-        public Uc_Profesores()
+        public Uc_Profesores(AcademiaRepositorio repo)
         {
             InitializeComponent();
+            this.repo = repo;
+           
             dgvProfesores.AllowUserToAddRows = false;
+            cargarDatos();
         }
 
-
-        public void Inicializar(AcademiaRepositorio repo)
+        private void cargarDatos()
         {
-            _repositorio = repo;
-
-
-            dgvProfesores.DataSource = _repositorio.Profesores;
+            dgvProfesores.DataSource = null;
+            dgvProfesores.DataSource = repo.Profesores;
         }
-
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
-            if (_repositorio != null)
-            {
-
-                AgregarProfesor ventanaAgregar = new AgregarProfesor(_repositorio);
-                ventanaAgregar.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Error: El sistema de datos no está inicializado.", "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            var formProfesor = new AgregarProfesor(repo);
+            formProfesor.ShowDialog();
+            cargarDatos();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
-            if (dgvProfesores.SelectedRows.Count > 0)
+            
+            if (dgvProfesores.CurrentRow == null || dgvProfesores.CurrentRow.IsNewRow)
             {
-
-                Profesor profesorSeleccionado = (Profesor)dgvProfesores.SelectedRows[0].DataBoundItem;
-
-
-                DialogResult respuesta = MessageBox.Show(
-                    $"¿Estás seguro de eliminar al profesor {profesorSeleccionado.Nombre} {profesorSeleccionado.Apellido}?",
-                    "Confirmar eliminación",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning);
-
-                if (respuesta == DialogResult.Yes)
-                {
-
-                    _repositorio.EliminarProfesor(profesorSeleccionado.IdProfesor);
-                    MessageBox.Show("Profesor eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                MessageBox.Show("Selecciona un profesor para eliminar.", "Aviso");
+                return;
             }
-            else
+
+            Profesor profesorSeleccionado = (Profesor)dgvProfesores.CurrentRow.DataBoundItem;
+            var confirmacion = MessageBox.Show($"¿Estas seguro de eliminar al profesor {profesorSeleccionado.Nombre} {profesorSeleccionado.Apellido}?", "Confirmar eliminación", MessageBoxButtons.YesNo);
+
+            if (confirmacion == DialogResult.Yes)
             {
-                MessageBox.Show("Por favor, seleccione un profesor de la tabla para eliminarlo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                repo.EliminarProfesor(profesorSeleccionado.IdProfesor);
+                cargarDatos(); 
             }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            
-            if (dgvProfesores.SelectedRows.Count > 0)
+            if (dgvProfesores.CurrentRow == null || dgvProfesores.CurrentRow.IsNewRow)
             {
-                
-                Profesor profesorSeleccionado = (Profesor)dgvProfesores.SelectedRows[0].DataBoundItem;
-
-                
-                ActualizarProfesor ventanaActualizar = new ActualizarProfesor(_repositorio, profesorSeleccionado);
-                ventanaActualizar.ShowDialog();
-
-                
-                dgvProfesores.Refresh();
+                MessageBox.Show("Selecciona un profesor para editar.", "Aviso");
+                return;
             }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione un profesor de la tabla para actualizar sus datos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+
+            Profesor seleccionado = (Profesor)dgvProfesores.CurrentRow.DataBoundItem;
+            var form = new ActualizarProfesor(repo, seleccionado);
+            form.ShowDialog();
+            cargarDatos();
         }
     }
 }

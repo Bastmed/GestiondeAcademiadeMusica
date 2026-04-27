@@ -17,27 +17,25 @@ namespace GestiondeAcademiadeMusica
         private AcademiaRepositorio repo;
         private Uc_Alumnos ucAlumnos;
         private Uc_Instrumentos ucInstrumentos;
-        private Uc_Profesores ucProfesores; 
+        private Uc_Profesores ucProfesores;
 
         public MenuPrincipal()
         {
             InitializeComponent();
 
-            
             repo = new AcademiaRepositorio();
 
-            
             ucAlumnos = new Uc_Alumnos(repo);
             ucInstrumentos = new Uc_Instrumentos(repo);
 
-            
-            ucProfesores = new Uc_Profesores();
-            ucProfesores.Inicializar(repo);
+            // --- EL CAMBIO ESTÁ AQUÍ ---
+            // Ahora nace igual que Alumnos e Instrumentos
+            ucProfesores = new Uc_Profesores(repo);
+            // ---------------------------
 
-            
             ucAlumnos.Dock = DockStyle.Fill;
             ucInstrumentos.Dock = DockStyle.Fill;
-            ucProfesores.Dock = DockStyle.Fill; 
+            ucProfesores.Dock = DockStyle.Fill;
         }
 
         private void MostrarControl(UserControl control)
@@ -46,7 +44,6 @@ namespace GestiondeAcademiadeMusica
             pnlContenedor.Controls.Add(control);
         }
 
-        
         private void btnProfesores_Click(object sender, EventArgs e)
         {
             MostrarControl(ucProfesores);
@@ -67,7 +64,7 @@ namespace GestiondeAcademiadeMusica
             Application.Exit();
         }
 
-        
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             var formAlumno = new AgregarAlumno(repo);
