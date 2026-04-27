@@ -14,14 +14,24 @@ namespace GestiondeAcademiadeMusica.Forms.Alumnos
     {
         private readonly AcademiaRepositorio repo;
         private readonly Alumno alumno;
+
         public ActulizarAlumno()
         {
             InitializeComponent();
         }
+
         public ActulizarAlumno(AcademiaRepositorio repo, Alumno alumno) : this()
         {
             this.repo = repo;
             this.alumno = alumno;
+
+            cmbInstrumento.DisplayMember = "Nombre";
+            cmbInstrumento.DataSource = repo.Instrumentos;
+
+            // Preseleccionar el instrumento actual del alumno
+            var instrumentoActual = repo.Instrumentos.FirstOrDefault(x => x.IdInstrumento == alumno.IdInstrumento);
+            if (instrumentoActual != null)
+                cmbInstrumento.SelectedItem = instrumentoActual;
 
             txtNombreAlumno.Text = alumno.Nombre;
             txtApellidoAlumno.Text = alumno.Apellido;
@@ -30,6 +40,7 @@ namespace GestiondeAcademiadeMusica.Forms.Alumnos
             dtpFechaAlumno.Value = alumno.FechaNacimiento;
             chkActivoAlumno.Checked = alumno.Activo;
         }
+
         private bool Validar()
         {
             bool ok = true;
@@ -50,9 +61,12 @@ namespace GestiondeAcademiadeMusica.Forms.Alumnos
             }
             return ok;
         }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!Validar()) return;
+
+            var instrumentoSeleccionado = (Instrumento)cmbInstrumento.SelectedItem;
 
             alumno.Nombre = txtNombreAlumno.Text.Trim();
             alumno.Apellido = txtApellidoAlumno.Text.Trim();
@@ -60,13 +74,14 @@ namespace GestiondeAcademiadeMusica.Forms.Alumnos
             alumno.Email = txtEmailAlumno.Text.Trim();
             alumno.FechaNacimiento = dtpFechaAlumno.Value.Date;
             alumno.Activo = chkActivoAlumno.Checked;
+            alumno.IdInstrumento = instrumentoSeleccionado.IdInstrumento;
+            alumno.NombreInstrumento = instrumentoSeleccionado.Nombre;
 
             repo.ActualizarAlumno(alumno);
 
             MessageBox.Show("Alumno actualizado correctamente.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.DialogResult = DialogResult.OK;
             this.Close();
-
         }
     }
 }

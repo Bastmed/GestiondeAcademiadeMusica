@@ -64,6 +64,7 @@ namespace GestiondeAcademiadeMusica
                 existing.Email = a.Email;
                 existing.Activo = a.Activo;
                 existing.IdInstrumento = a.IdInstrumento;
+                existing.NombreInstrumento = a.NombreInstrumento;
             }
         }
 
@@ -109,7 +110,7 @@ namespace GestiondeAcademiadeMusica
 
             AgregarProfesor(new Profesor { Nombre = "Carlos", Apellido = "Mendoza", Telefono = "912345678", Email = "carlos@academia.cl", Especialidad = "Guitarra", TarifaHora = 15000 });
 
-            AgregarAlumno(new Alumno { Nombre = "Pedro", Apellido = "González", Telefono = "911111111", FechaNacimiento = new DateTime(2005, 3, 12), Email = "pedro@mail.com", Activo = true, IdInstrumento = 1 });
+            AgregarAlumno(new Alumno { Nombre = "Pedro", Apellido = "González", Telefono = "911111111", FechaNacimiento = new DateTime(2005, 3, 12), Email = "pedro@mail.com", Activo = true, IdInstrumento = 1, NombreInstrumento = "Guitarra" });
         }
     }
 }

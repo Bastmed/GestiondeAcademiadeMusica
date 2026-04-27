@@ -41,6 +41,8 @@
             btnEnviar = new Button();
             chkActivoAlumno = new CheckBox();
             lblActivoAlumno = new Label();
+            lblInstrumento = new Label();
+            cmbInstrumentoAgr = new ComboBox();
             SuspendLayout();
             // 
             // lblNombreAlumno
@@ -103,7 +105,7 @@
             lblTelefonoAlumno.AutoSize = true;
             lblTelefonoAlumno.Location = new Point(94, 284);
             lblTelefonoAlumno.Name = "lblTelefonoAlumno";
-            lblTelefonoAlumno.Size = new Size(55, 15);
+            lblTelefonoAlumno.Size = new Size(56, 15);
             lblTelefonoAlumno.TabIndex = 7;
             lblTelefonoAlumno.Text = "Telefono:";
             // 
@@ -152,11 +154,31 @@
             lblActivoAlumno.TabIndex = 15;
             lblActivoAlumno.Text = "Alumno activo:";
             // 
-            // FormularioAlumno
+            // lblInstrumento
+            // 
+            lblInstrumento.AutoSize = true;
+            lblInstrumento.Location = new Point(416, 238);
+            lblInstrumento.Name = "lblInstrumento";
+            lblInstrumento.Size = new Size(75, 15);
+            lblInstrumento.TabIndex = 16;
+            lblInstrumento.Text = "Instrumento:";
+            // 
+            // cmbInstrumentoAgr
+            // 
+            cmbInstrumentoAgr.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbInstrumentoAgr.FormattingEnabled = true;
+            cmbInstrumentoAgr.Location = new Point(416, 256);
+            cmbInstrumentoAgr.Name = "cmbInstrumentoAgr";
+            cmbInstrumentoAgr.Size = new Size(121, 23);
+            cmbInstrumentoAgr.TabIndex = 17;
+            // 
+            // AgregarAlumno
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(cmbInstrumentoAgr);
+            Controls.Add(lblInstrumento);
             Controls.Add(lblActivoAlumno);
             Controls.Add(chkActivoAlumno);
             Controls.Add(btnEnviar);
@@ -170,7 +192,7 @@
             Controls.Add(lblApellidoAlumno);
             Controls.Add(txtNombreAlumno);
             Controls.Add(lblNombreAlumno);
-            Name = "FormularioAlumno";
+            Name = "AgregarAlumno";
             Text = "FormularioAlumno";
             ResumeLayout(false);
             PerformLayout();
@@ -191,5 +213,7 @@
         private Button btnEnviar;
         private CheckBox chkActivoAlumno;
         private Label lblActivoAlumno;
+        private Label lblInstrumento;
+        private ComboBox cmbInstrumentoAgr;
     }
 }

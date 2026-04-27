@@ -10,10 +10,12 @@
         public string Email { get; set; }
         public bool Activo { get; set; }
         public int IdInstrumento { get; set; }
+        public string NombreInstrumento { get; set; }
 
         public Alumno()
         {
             Activo = true;
+            NombreInstrumento = "";
         }
     }
 }

@@ -11,6 +11,11 @@ namespace GestiondeAcademiadeMusica.Forms
             InitializeComponent();
             this.repo = repo;
             dgvAlumnos.AllowUserToAddRows = false;
+
+            // Mostrar el nombre del instrumento en vez del ID
+            idInstrumentoDataGridViewTextBoxColumn.DataPropertyName = "NombreInstrumento";
+            idInstrumentoDataGridViewTextBoxColumn.HeaderText = "Instrumento";
+
             cargarDatos();
         }
 
@@ -38,9 +43,7 @@ namespace GestiondeAcademiadeMusica.Forms
             var confirmacion = MessageBox.Show($"¿Estas seguro de eliminar al alumno {alumnoSeleccionado.Nombre} {alumnoSeleccionado.Apellido}?", "Confirmar eliminación", MessageBoxButtons.YesNo);
 
             if (confirmacion == DialogResult.Yes)
-            {
                 repo.EliminarAlumno(alumnoSeleccionado.IdAlumno);
-            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

@@ -22,6 +22,9 @@ namespace GestiondeAcademiadeMusica.Forms
         {
             this.repo = repo ?? throw new ArgumentNullException(nameof(repo));
             AlumnoActual = new Alumno();
+
+            cmbInstrumentoAgr.DisplayMember = "Nombre";
+            cmbInstrumentoAgr.DataSource = repo.Instrumentos;
         }
         private bool Validar()
         {
@@ -54,7 +57,13 @@ namespace GestiondeAcademiadeMusica.Forms
                 AlumnoActual.Telefono = txtTelefonoAlumno.Text.Trim();
                 AlumnoActual.Email = txtEmailAlumno.Text.Trim();
                 AlumnoActual.Activo = chkActivoAlumno.Checked;
+
+                var instrumentoSeleccionado = (Instrumento)cmbInstrumentoAgr.SelectedItem;
+                AlumnoActual.IdInstrumento = instrumentoSeleccionado.IdInstrumento;
+                AlumnoActual.NombreInstrumento = instrumentoSeleccionado.Nombre;
+
                 repo.AgregarAlumno(AlumnoActual);
+
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();

@@ -41,6 +41,8 @@
             txtNombreAlumno = new TextBox();
             lblNombreAlumno = new Label();
             btnGuardar = new Button();
+            lblInstrumentoAct = new Label();
+            cmbInstrumento = new ComboBox();
             SuspendLayout();
             // 
             // lblActivoAlumno
@@ -90,7 +92,7 @@
             lblTelefonoAlumno.AutoSize = true;
             lblTelefonoAlumno.Location = new Point(95, 287);
             lblTelefonoAlumno.Name = "lblTelefonoAlumno";
-            lblTelefonoAlumno.Size = new Size(55, 15);
+            lblTelefonoAlumno.Size = new Size(56, 15);
             lblTelefonoAlumno.TabIndex = 22;
             lblTelefonoAlumno.Text = "Telefono:";
             // 
@@ -152,11 +154,30 @@
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
             // 
+            // lblInstrumentoAct
+            // 
+            lblInstrumentoAct.AutoSize = true;
+            lblInstrumentoAct.Location = new Point(417, 241);
+            lblInstrumentoAct.Name = "lblInstrumentoAct";
+            lblInstrumentoAct.Size = new Size(75, 15);
+            lblInstrumentoAct.TabIndex = 29;
+            lblInstrumentoAct.Text = "Instrumento:";
+            // 
+            // cmbInstrumento
+            // 
+            cmbInstrumento.FormattingEnabled = true;
+            cmbInstrumento.Location = new Point(417, 259);
+            cmbInstrumento.Name = "cmbInstrumento";
+            cmbInstrumento.Size = new Size(121, 23);
+            cmbInstrumento.TabIndex = 30;
+            // 
             // ActulizarAlumno
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(cmbInstrumento);
+            Controls.Add(lblInstrumentoAct);
             Controls.Add(btnGuardar);
             Controls.Add(lblActivoAlumno);
             Controls.Add(chkActivoAlumno);
@@ -191,5 +212,7 @@
         private TextBox txtNombreAlumno;
         private Label lblNombreAlumno;
         private Button btnGuardar;
+        private Label lblInstrumentoAct;
+        private ComboBox cmbInstrumento;
     }
 }
