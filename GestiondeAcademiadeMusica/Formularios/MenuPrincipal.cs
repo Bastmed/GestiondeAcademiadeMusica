@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using GestiondeAcademiadeMusica.Forms;
 using GestiondeAcademiadeMusica.Forms.UserControls;
 
-
 namespace GestiondeAcademiadeMusica
 {
     public partial class MenuPrincipal : Form
@@ -18,34 +17,39 @@ namespace GestiondeAcademiadeMusica
         private AcademiaRepositorio repo;
         private Uc_Alumnos ucAlumnos;
         private Uc_Instrumentos ucInstrumentos;
+        private Uc_Profesores ucProfesores; 
 
         public MenuPrincipal()
         {
             InitializeComponent();
+
+            
             repo = new AcademiaRepositorio();
+
+            
             ucAlumnos = new Uc_Alumnos(repo);
             ucInstrumentos = new Uc_Instrumentos(repo);
 
+            
+            ucProfesores = new Uc_Profesores();
+            ucProfesores.Inicializar(repo);
+
+            
             ucAlumnos.Dock = DockStyle.Fill;
             ucInstrumentos.Dock = DockStyle.Fill;
+            ucProfesores.Dock = DockStyle.Fill; 
         }
+
         private void MostrarControl(UserControl control)
         {
             pnlContenedor.Controls.Clear();
             pnlContenedor.Controls.Add(control);
         }
 
-
-        private void btnAgregar_Click(object sender, EventArgs e)
+        
+        private void btnProfesores_Click(object sender, EventArgs e)
         {
-            var formAlumno = new AgregarAlumno(repo);
-            formAlumno.Show();
-
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+            MostrarControl(ucProfesores);
         }
 
         private void btnAlumnos_Click(object sender, EventArgs e)
@@ -56,6 +60,18 @@ namespace GestiondeAcademiadeMusica
         private void btnInstrumentos_Click(object sender, EventArgs e)
         {
             MostrarControl(ucInstrumentos);
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            var formAlumno = new AgregarAlumno(repo);
+            formAlumno.Show();
         }
     }
 }
