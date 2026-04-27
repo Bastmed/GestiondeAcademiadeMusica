@@ -18,6 +18,7 @@ namespace GestiondeAcademiadeMusica.Forms.UserControls
         public Uc_Profesores()
         {
             InitializeComponent();
+            dgvProfesores.AllowUserToAddRows = false;
         }
 
 

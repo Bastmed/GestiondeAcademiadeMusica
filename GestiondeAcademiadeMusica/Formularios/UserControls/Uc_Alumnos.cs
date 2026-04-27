@@ -1,35 +1,29 @@
 ﻿using GestiondeAcademiadeMusica.Forms.Alumnos;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestiondeAcademiadeMusica.Forms
 {
     public partial class Uc_Alumnos : UserControl
     {
         private AcademiaRepositorio repo;
+
         public Uc_Alumnos(AcademiaRepositorio repo)
         {
             InitializeComponent();
             this.repo = repo;
+            dgvAlumnos.AllowUserToAddRows = false;
             cargarDatos();
-
         }
+
         private void cargarDatos()
         {
             dgvAlumnos.DataSource = null;
             dgvAlumnos.DataSource = repo.Alumnos;
         }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             var formAlumno = new AgregarAlumno(repo);
-            formAlumno.Show();
+            formAlumno.ShowDialog();
             cargarDatos();
         }
 
@@ -57,7 +51,6 @@ namespace GestiondeAcademiadeMusica.Forms
                 return;
             }
             Alumno seleccionado = (Alumno)dgvAlumnos.CurrentRow.DataBoundItem;
-
             var form = new ActulizarAlumno(repo, seleccionado);
             form.ShowDialog();
             cargarDatos();

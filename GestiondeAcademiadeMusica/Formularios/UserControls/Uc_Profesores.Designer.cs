@@ -37,9 +37,10 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(964, 47);
+            btnAgregar.Location = new Point(844, 35);
+            btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(94, 29);
+            btnAgregar.Size = new Size(82, 22);
             btnAgregar.TabIndex = 0;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -47,9 +48,10 @@
             // 
             // btnActualizar
             // 
-            btnActualizar.Location = new Point(964, 82);
+            btnActualizar.Location = new Point(844, 62);
+            btnActualizar.Margin = new Padding(3, 2, 3, 2);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(94, 29);
+            btnActualizar.Size = new Size(82, 22);
             btnActualizar.TabIndex = 1;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = true;
@@ -57,9 +59,10 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(964, 117);
+            btnEliminar.Location = new Point(844, 88);
+            btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(94, 29);
+            btnEliminar.Size = new Size(82, 22);
             btnEliminar.TabIndex = 2;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -68,23 +71,25 @@
             // dgvProfesores
             // 
             dgvProfesores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProfesores.Location = new Point(25, 47);
+            dgvProfesores.Location = new Point(22, 35);
+            dgvProfesores.Margin = new Padding(3, 2, 3, 2);
             dgvProfesores.Name = "dgvProfesores";
             dgvProfesores.RowHeadersWidth = 51;
             dgvProfesores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProfesores.Size = new Size(904, 341);
+            dgvProfesores.Size = new Size(816, 256);
             dgvProfesores.TabIndex = 3;
             // 
             // Uc_Profesores
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(dgvProfesores);
             Controls.Add(btnEliminar);
             Controls.Add(btnActualizar);
             Controls.Add(btnAgregar);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Uc_Profesores";
-            Size = new Size(1098, 600);
+            Size = new Size(961, 450);
             ((System.ComponentModel.ISupportInitialize)dgvProfesores).EndInit();
             ResumeLayout(false);
         }

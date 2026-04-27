@@ -1,25 +1,19 @@
-﻿using GestiondeAcademiadeMusica.Forms.Instrumentos;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using GestiondeAcademiadeMusica.Forms;
+using GestiondeAcademiadeMusica.Forms.Instrumentos;
 
 namespace GestiondeAcademiadeMusica.Forms.UserControls
 {
     public partial class Uc_Instrumentos : UserControl
     {
         private AcademiaRepositorio repo;
+
         public Uc_Instrumentos(AcademiaRepositorio repo)
         {
             InitializeComponent();
             this.repo = repo;
             cargarDatos();
         }
+
         private void cargarDatos()
         {
             dgvInstrumentos.DataSource = null;
@@ -29,7 +23,7 @@ namespace GestiondeAcademiadeMusica.Forms.UserControls
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             var formInstrumento = new AgregarInstrumento(repo);
-            formInstrumento.Show();
+            formInstrumento.ShowDialog();
             cargarDatos();
         }
 
