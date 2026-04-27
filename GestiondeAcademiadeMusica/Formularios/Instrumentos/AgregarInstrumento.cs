@@ -14,15 +14,19 @@ namespace GestiondeAcademiadeMusica.Forms
     {
         private readonly AcademiaRepositorio repo;
         public Instrumento InstrumentoActual { get; private set; }
+
         public AgregarInstrumento()
         {
             InitializeComponent();
+            numPrecioInstrumento.Maximum = 9999999;
         }
+
         public AgregarInstrumento(AcademiaRepositorio repo) : this()
         {
             this.repo = repo ?? throw new ArgumentNullException(nameof(repo));
             InstrumentoActual = new Instrumento();
         }
+
         private bool Validar()
         {
             bool ok = true;

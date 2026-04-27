@@ -15,10 +15,13 @@ namespace GestiondeAcademiadeMusica.Forms.Instrumentos
     {
         private readonly AcademiaRepositorio repo;
         private readonly Instrumento instrumento;
+
         public ActualizarInstrumento()
         {
             InitializeComponent();
+            numPrecioInstrumento.Maximum = 9999999;
         }
+
         public ActualizarInstrumento(AcademiaRepositorio repo, Instrumento instrumento) : this()
         {
             this.repo = repo;
@@ -30,6 +33,7 @@ namespace GestiondeAcademiadeMusica.Forms.Instrumentos
             numPrecioInstrumento.Value = instrumento.PrecioMensual;
             cmbEstadoInstrumento.SelectedItem = instrumento.Estado;
         }
+
         private bool Validar()
         {
             bool ok = true;

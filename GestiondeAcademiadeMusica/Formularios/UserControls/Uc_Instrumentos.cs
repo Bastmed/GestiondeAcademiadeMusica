@@ -11,6 +11,7 @@ namespace GestiondeAcademiadeMusica.Forms.UserControls
         {
             InitializeComponent();
             this.repo = repo;
+            dgvInstrumentos.AllowUserToAddRows = false;
             cargarDatos();
         }
 
