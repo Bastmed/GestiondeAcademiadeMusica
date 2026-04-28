@@ -32,15 +32,15 @@
             txtApellido = new TextBox();
             txtTelefono = new TextBox();
             txtEmail = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
+            lblNombreAgrPro = new Label();
+            lblApellidoAgrPro = new Label();
+            lblTelefonoAgrPro = new Label();
+            lblEmailAgrPro = new Label();
             cmbEspecialidad = new ComboBox();
-            label5 = new Label();
-            label6 = new Label();
+            lblEspecialidadAgrPro = new Label();
+            lblTarifaAgrPro = new Label();
             txtTarifa = new TextBox();
-            label7 = new Label();
+            lblActivoAgrPro = new Label();
             chkActivo = new CheckBox();
             btnEnviar = new Button();
             SuspendLayout();
@@ -77,69 +77,69 @@
             txtEmail.Size = new Size(110, 23);
             txtEmail.TabIndex = 3;
             // 
-            // label1
+            // lblNombreAgrPro
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(59, 40);
-            label1.Name = "label1";
-            label1.Size = new Size(51, 15);
-            label1.TabIndex = 4;
-            label1.Text = "Nombre";
+            lblNombreAgrPro.AutoSize = true;
+            lblNombreAgrPro.Location = new Point(60, 40);
+            lblNombreAgrPro.Name = "lblNombreAgrPro";
+            lblNombreAgrPro.Size = new Size(54, 15);
+            lblNombreAgrPro.TabIndex = 4;
+            lblNombreAgrPro.Text = "Nombre:";
             // 
-            // label2
+            // lblApellidoAgrPro
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(59, 112);
-            label2.Name = "label2";
-            label2.Size = new Size(51, 15);
-            label2.TabIndex = 5;
-            label2.Text = "Apellido";
+            lblApellidoAgrPro.AutoSize = true;
+            lblApellidoAgrPro.Location = new Point(59, 112);
+            lblApellidoAgrPro.Name = "lblApellidoAgrPro";
+            lblApellidoAgrPro.Size = new Size(54, 15);
+            lblApellidoAgrPro.TabIndex = 5;
+            lblApellidoAgrPro.Text = "Apellido:";
             // 
-            // label3
+            // lblTelefonoAgrPro
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(57, 179);
-            label3.Name = "label3";
-            label3.Size = new Size(52, 15);
-            label3.TabIndex = 6;
-            label3.Text = "Telefono";
+            lblTelefonoAgrPro.AutoSize = true;
+            lblTelefonoAgrPro.Location = new Point(57, 179);
+            lblTelefonoAgrPro.Name = "lblTelefonoAgrPro";
+            lblTelefonoAgrPro.Size = new Size(56, 15);
+            lblTelefonoAgrPro.TabIndex = 6;
+            lblTelefonoAgrPro.Text = "Telefono:";
             // 
-            // label4
+            // lblEmailAgrPro
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(57, 242);
-            label4.Name = "label4";
-            label4.Size = new Size(36, 15);
-            label4.TabIndex = 7;
-            label4.Text = "Email";
+            lblEmailAgrPro.AutoSize = true;
+            lblEmailAgrPro.Location = new Point(57, 242);
+            lblEmailAgrPro.Name = "lblEmailAgrPro";
+            lblEmailAgrPro.Size = new Size(39, 15);
+            lblEmailAgrPro.TabIndex = 7;
+            lblEmailAgrPro.Text = "Email:";
             // 
             // cmbEspecialidad
             // 
             cmbEspecialidad.FormattingEnabled = true;
-            cmbEspecialidad.Items.AddRange(new object[] { "Canto", "Guitarra", "Piano", "Batería", "Violín" });
+            cmbEspecialidad.Items.AddRange(new object[] { "Guitarra Clásica", "Guitarra Eléctrica", "Bajo Eléctrico", "Piano", "Violín", "Violoncello", "Contrabajo", "Flauta Traversa", "Clarinete", "Saxofón", "Trompeta", "Trombón", "Percusión Clásica", "Batería", "Arpa", "Canto Lírico", "Canto Popular", "Charango", "Quena", "Teoría Musical y Solfeo", "Composición", "Dirección Coral" });
             cmbEspecialidad.Location = new Point(254, 78);
             cmbEspecialidad.Margin = new Padding(3, 2, 3, 2);
             cmbEspecialidad.Name = "cmbEspecialidad";
             cmbEspecialidad.Size = new Size(133, 23);
             cmbEspecialidad.TabIndex = 8;
             // 
-            // label5
+            // lblEspecialidadAgrPro
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(254, 40);
-            label5.Name = "label5";
-            label5.Size = new Size(72, 15);
-            label5.TabIndex = 9;
-            label5.Text = "Especialidad";
+            lblEspecialidadAgrPro.AutoSize = true;
+            lblEspecialidadAgrPro.Location = new Point(254, 40);
+            lblEspecialidadAgrPro.Name = "lblEspecialidadAgrPro";
+            lblEspecialidadAgrPro.Size = new Size(75, 15);
+            lblEspecialidadAgrPro.TabIndex = 9;
+            lblEspecialidadAgrPro.Text = "Especialidad:";
             // 
-            // label6
+            // lblTarifaAgrPro
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(455, 40);
-            label6.Name = "label6";
-            label6.Size = new Size(35, 15);
-            label6.TabIndex = 10;
-            label6.Text = "Tarifa";
+            lblTarifaAgrPro.AutoSize = true;
+            lblTarifaAgrPro.Location = new Point(455, 40);
+            lblTarifaAgrPro.Name = "lblTarifaAgrPro";
+            lblTarifaAgrPro.Size = new Size(39, 15);
+            lblTarifaAgrPro.TabIndex = 10;
+            lblTarifaAgrPro.Text = "Tarifa:";
             // 
             // txtTarifa
             // 
@@ -149,14 +149,14 @@
             txtTarifa.Size = new Size(110, 23);
             txtTarifa.TabIndex = 11;
             // 
-            // label7
+            // lblActivoAgrPro
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(447, 140);
-            label7.Name = "label7";
-            label7.Size = new Size(41, 15);
-            label7.TabIndex = 12;
-            label7.Text = "Activo";
+            lblActivoAgrPro.AutoSize = true;
+            lblActivoAgrPro.Location = new Point(447, 140);
+            lblActivoAgrPro.Name = "lblActivoAgrPro";
+            lblActivoAgrPro.Size = new Size(44, 15);
+            lblActivoAgrPro.TabIndex = 12;
+            lblActivoAgrPro.Text = "Activo:";
             // 
             // chkActivo
             // 
@@ -186,15 +186,15 @@
             ClientSize = new Size(700, 338);
             Controls.Add(btnEnviar);
             Controls.Add(chkActivo);
-            Controls.Add(label7);
+            Controls.Add(lblActivoAgrPro);
             Controls.Add(txtTarifa);
-            Controls.Add(label6);
-            Controls.Add(label5);
+            Controls.Add(lblTarifaAgrPro);
+            Controls.Add(lblEspecialidadAgrPro);
             Controls.Add(cmbEspecialidad);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(lblEmailAgrPro);
+            Controls.Add(lblTelefonoAgrPro);
+            Controls.Add(lblApellidoAgrPro);
+            Controls.Add(lblNombreAgrPro);
             Controls.Add(txtEmail);
             Controls.Add(txtTelefono);
             Controls.Add(txtApellido);
@@ -224,5 +224,12 @@
         private Label label7;
         private CheckBox chkActivo;
         private Button btnEnviar;
+        private Label lblNombreAgrPro;
+        private Label lblApellidoAgrPro;
+        private Label lblTelefonoAgrPro;
+        private Label lblEmailAgrPro;
+        private Label lblEspecialidadAgrPro;
+        private Label lblTarifaAgrPro;
+        private Label lblActivoAgrPro;
     }
 }

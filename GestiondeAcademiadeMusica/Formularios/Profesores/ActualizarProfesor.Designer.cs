@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label5 = new Label();
+            lblEspecialidadActProfe = new Label();
             cmbEspecialidad = new ComboBox();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
+            lblEmailActProfe = new Label();
+            lblTelefonoActProfe = new Label();
+            lblApellidoActProfe = new Label();
+            lblNombreActProfe = new Label();
             txtEmail = new TextBox();
             txtTelefono = new TextBox();
             txtApellido = new TextBox();
@@ -41,64 +41,65 @@
             chkActivo = new CheckBox();
             label7 = new Label();
             txtTarifa = new TextBox();
-            label6 = new Label();
+            lblTarifaActProfe = new Label();
             Guardar = new Button();
             SuspendLayout();
             // 
-            // label5
+            // lblEspecialidadActProfe
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(261, 31);
-            label5.Name = "label5";
-            label5.Size = new Size(72, 15);
-            label5.TabIndex = 8;
-            label5.Text = "Especialidad";
+            lblEspecialidadActProfe.AutoSize = true;
+            lblEspecialidadActProfe.Location = new Point(261, 31);
+            lblEspecialidadActProfe.Name = "lblEspecialidadActProfe";
+            lblEspecialidadActProfe.Size = new Size(75, 15);
+            lblEspecialidadActProfe.TabIndex = 8;
+            lblEspecialidadActProfe.Text = "Especialidad:";
             // 
             // cmbEspecialidad
             // 
             cmbEspecialidad.FormattingEnabled = true;
-            cmbEspecialidad.Items.AddRange(new object[] { "Canto", "Guitarra", "Piano", "Batería", "Violín" });
+            cmbEspecialidad.Items.AddRange(new object[] { "Guitarra Clásica", "Guitarra Eléctrica", "Bajo Eléctrico", "Piano", "Violín", "Violoncello", "Contrabajo", "Flauta Traversa", "Clarinete", "Saxofón", "Trompeta", "Trombón", "Percusión Clásica", "Batería", "Arpa", "Canto Lírico", "Canto Popular", "Charango", "Quena", "Teoría Musical y Solfeo", "Composición", "Dirección Coral" });
             cmbEspecialidad.Location = new Point(261, 69);
             cmbEspecialidad.Margin = new Padding(3, 2, 3, 2);
             cmbEspecialidad.Name = "cmbEspecialidad";
             cmbEspecialidad.Size = new Size(133, 23);
             cmbEspecialidad.TabIndex = 11;
             // 
-            // label4
+            // lblEmailActProfe
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(51, 232);
-            label4.Name = "label4";
-            label4.Size = new Size(36, 15);
-            label4.TabIndex = 19;
-            label4.Text = "Email";
+            lblEmailActProfe.AutoSize = true;
+            lblEmailActProfe.Location = new Point(51, 232);
+            lblEmailActProfe.Name = "lblEmailActProfe";
+            lblEmailActProfe.Size = new Size(39, 15);
+            lblEmailActProfe.TabIndex = 19;
+            lblEmailActProfe.Text = "Email:";
             // 
-            // label3
+            // lblTelefonoActProfe
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(51, 170);
-            label3.Name = "label3";
-            label3.Size = new Size(52, 15);
-            label3.TabIndex = 18;
-            label3.Text = "Telefono";
+            lblTelefonoActProfe.AutoSize = true;
+            lblTelefonoActProfe.Location = new Point(51, 170);
+            lblTelefonoActProfe.Name = "lblTelefonoActProfe";
+            lblTelefonoActProfe.Size = new Size(56, 15);
+            lblTelefonoActProfe.TabIndex = 18;
+            lblTelefonoActProfe.Text = "Telefono:";
             // 
-            // label2
+            // lblApellidoActProfe
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(52, 103);
-            label2.Name = "label2";
-            label2.Size = new Size(51, 15);
-            label2.TabIndex = 17;
-            label2.Text = "Apellido";
+            lblApellidoActProfe.AutoSize = true;
+            lblApellidoActProfe.Location = new Point(52, 103);
+            lblApellidoActProfe.Name = "lblApellidoActProfe";
+            lblApellidoActProfe.Size = new Size(54, 15);
+            lblApellidoActProfe.TabIndex = 17;
+            lblApellidoActProfe.Text = "Apellido:";
             // 
-            // label1
+            // lblNombreActProfe
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(52, 31);
-            label1.Name = "label1";
-            label1.Size = new Size(51, 15);
-            label1.TabIndex = 16;
-            label1.Text = "Nombre";
+            lblNombreActProfe.AutoSize = true;
+            lblNombreActProfe.Location = new Point(52, 31);
+            lblNombreActProfe.Name = "lblNombreActProfe";
+            lblNombreActProfe.Size = new Size(54, 15);
+            lblNombreActProfe.TabIndex = 16;
+            lblNombreActProfe.Text = "Nombre:";
+            lblNombreActProfe.Click += label1_Click;
             // 
             // txtEmail
             // 
@@ -147,9 +148,9 @@
             label7.AutoSize = true;
             label7.Location = new Point(469, 130);
             label7.Name = "label7";
-            label7.Size = new Size(41, 15);
+            label7.Size = new Size(44, 15);
             label7.TabIndex = 22;
-            label7.Text = "Activo";
+            label7.Text = "Activo:";
             // 
             // txtTarifa
             // 
@@ -159,14 +160,15 @@
             txtTarifa.Size = new Size(110, 23);
             txtTarifa.TabIndex = 21;
             // 
-            // label6
+            // lblTarifaActProfe
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(477, 31);
-            label6.Name = "label6";
-            label6.Size = new Size(35, 15);
-            label6.TabIndex = 20;
-            label6.Text = "Tarifa";
+            lblTarifaActProfe.AutoSize = true;
+            lblTarifaActProfe.Location = new Point(477, 31);
+            lblTarifaActProfe.Name = "lblTarifaActProfe";
+            lblTarifaActProfe.Size = new Size(39, 15);
+            lblTarifaActProfe.TabIndex = 20;
+            lblTarifaActProfe.Text = "Tarifa:";
+            lblTarifaActProfe.Click += lblTarifaActProfe_Click;
             // 
             // Guardar
             // 
@@ -188,17 +190,17 @@
             Controls.Add(chkActivo);
             Controls.Add(label7);
             Controls.Add(txtTarifa);
-            Controls.Add(label6);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(lblTarifaActProfe);
+            Controls.Add(lblEmailActProfe);
+            Controls.Add(lblTelefonoActProfe);
+            Controls.Add(lblApellidoActProfe);
+            Controls.Add(lblNombreActProfe);
             Controls.Add(txtEmail);
             Controls.Add(txtTelefono);
             Controls.Add(txtApellido);
             Controls.Add(txtNombre);
             Controls.Add(cmbEspecialidad);
-            Controls.Add(label5);
+            Controls.Add(lblEspecialidadActProfe);
             Margin = new Padding(3, 2, 3, 2);
             Name = "ActualizarProfesor";
             StartPosition = FormStartPosition.CenterScreen;
@@ -208,12 +210,12 @@
         }
 
         #endregion
-        private Label label5;
+        private Label lblEspecialidadActProfe;
         private ComboBox cmbEspecialidad;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
+        private Label lblEmailActProfe;
+        private Label lblTelefonoActProfe;
+        private Label lblApellidoActProfe;
+        private Label lblNombreActProfe;
         private TextBox txtEmail;
         private TextBox txtTelefono;
         private TextBox txtApellido;
@@ -221,7 +223,7 @@
         private CheckBox chkActivo;
         private Label label7;
         private TextBox txtTarifa;
-        private Label label6;
+        private Label lblTarifaActProfe;
         private Button Guardar;
     }
 }

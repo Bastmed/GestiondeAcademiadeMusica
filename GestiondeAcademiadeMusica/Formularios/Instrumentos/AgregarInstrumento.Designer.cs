@@ -67,7 +67,7 @@
             // cmbCategoriaInstrumento
             // 
             cmbCategoriaInstrumento.FormattingEnabled = true;
-            cmbCategoriaInstrumento.Items.AddRange(new object[] { "Cuerda", "Viento", "Percusión", "Electrófono" });
+            cmbCategoriaInstrumento.Items.AddRange(new object[] { "Cuerda Frotada", "Cuerda Pulsada", "Cuerda Percutida", "Viento Madera", "Viento Metal", "Percusión", "Teclas", "Electrónico", "Folclórico" });
             cmbCategoriaInstrumento.Location = new Point(97, 181);
             cmbCategoriaInstrumento.Name = "cmbCategoriaInstrumento";
             cmbCategoriaInstrumento.Size = new Size(121, 23);
@@ -92,7 +92,7 @@
             // lblEstadoInstrumento
             // 
             lblEstadoInstrumento.AutoSize = true;
-            lblEstadoInstrumento.Location = new Point(416, 163);
+            lblEstadoInstrumento.Location = new Point(368, 102);
             lblEstadoInstrumento.Name = "lblEstadoInstrumento";
             lblEstadoInstrumento.Size = new Size(132, 15);
             lblEstadoInstrumento.TabIndex = 11;
@@ -101,15 +101,15 @@
             // cmbEstadoInstrumento
             // 
             cmbEstadoInstrumento.FormattingEnabled = true;
-            cmbEstadoInstrumento.Items.AddRange(new object[] { "Excelente", "Bien", "Moderado", "Deplorable" });
-            cmbEstadoInstrumento.Location = new Point(416, 181);
+            cmbEstadoInstrumento.Items.AddRange(new object[] { "Disponible", "En uso", "En mantenimiento", "Deteriorado", "De baja" });
+            cmbEstadoInstrumento.Location = new Point(368, 134);
             cmbEstadoInstrumento.Name = "cmbEstadoInstrumento";
             cmbEstadoInstrumento.Size = new Size(132, 23);
             cmbEstadoInstrumento.TabIndex = 12;
             // 
             // btnEnviar
             // 
-            btnEnviar.Location = new Point(416, 337);
+            btnEnviar.Location = new Point(425, 248);
             btnEnviar.Name = "btnEnviar";
             btnEnviar.Size = new Size(75, 23);
             btnEnviar.TabIndex = 14;

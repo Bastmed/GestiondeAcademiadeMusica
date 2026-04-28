@@ -41,7 +41,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(411, 337);
+            btnGuardar.Location = new Point(420, 248);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(75, 23);
             btnGuardar.TabIndex = 25;
@@ -52,8 +52,8 @@
             // cmbEstadoInstrumento
             // 
             cmbEstadoInstrumento.FormattingEnabled = true;
-            cmbEstadoInstrumento.Items.AddRange(new object[] { "Excelente", "Bien", "Moderado", "Deplorable" });
-            cmbEstadoInstrumento.Location = new Point(411, 181);
+            cmbEstadoInstrumento.Items.AddRange(new object[] { "Disponible", "En uso", "En mantenimiento", "Deteriorado", "De baja" });
+            cmbEstadoInstrumento.Location = new Point(363, 121);
             cmbEstadoInstrumento.Name = "cmbEstadoInstrumento";
             cmbEstadoInstrumento.Size = new Size(132, 23);
             cmbEstadoInstrumento.TabIndex = 24;
@@ -61,7 +61,7 @@
             // lblEstadoInstrumento
             // 
             lblEstadoInstrumento.AutoSize = true;
-            lblEstadoInstrumento.Location = new Point(411, 163);
+            lblEstadoInstrumento.Location = new Point(363, 103);
             lblEstadoInstrumento.Name = "lblEstadoInstrumento";
             lblEstadoInstrumento.Size = new Size(132, 15);
             lblEstadoInstrumento.TabIndex = 23;
@@ -86,7 +86,7 @@
             // cmbCategoriaInstrumento
             // 
             cmbCategoriaInstrumento.FormattingEnabled = true;
-            cmbCategoriaInstrumento.Items.AddRange(new object[] { "Cuerda", "Viento", "Percusión", "Electrófono" });
+            cmbCategoriaInstrumento.Items.AddRange(new object[] { "Cuerda Frotada", "Cuerda Pulsada", "Cuerda Percutida", "Viento Madera", "Viento Metal", "Percusión", "Teclas", "Electrónico", "Folclórico" });
             cmbCategoriaInstrumento.Location = new Point(92, 181);
             cmbCategoriaInstrumento.Name = "cmbCategoriaInstrumento";
             cmbCategoriaInstrumento.Size = new Size(121, 23);

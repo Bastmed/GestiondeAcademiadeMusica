@@ -79,5 +79,15 @@ namespace GestiondeAcademiadeMusica.Forms.Profesores
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTarifaActProfe_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
