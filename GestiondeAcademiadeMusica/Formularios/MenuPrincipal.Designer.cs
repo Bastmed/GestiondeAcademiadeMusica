@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             pnlMenuPrincipal = new Panel();
             pnlProfesores = new Panel();
             pnlInstrumentos = new Panel();
@@ -37,10 +38,13 @@
             btnInstrumentos = new Button();
             btnAlumnos = new Button();
             pnlContenedor = new Panel();
+            pictureBox1 = new PictureBox();
             alumnoBindingSource = new BindingSource(components);
             pnlTop = new Panel();
             btnSalir = new Button();
             pnlMenuPrincipal.SuspendLayout();
+            pnlContenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)alumnoBindingSource).BeginInit();
             pnlTop.SuspendLayout();
             SuspendLayout();
@@ -121,10 +125,21 @@
             // 
             // pnlContenedor
             // 
+            pnlContenedor.Controls.Add(pictureBox1);
             pnlContenedor.Location = new Point(154, 91);
             pnlContenedor.Name = "pnlContenedor";
             pnlContenedor.Size = new Size(934, 431);
             pnlContenedor.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(821, 376);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // alumnoBindingSource
             // 
@@ -161,6 +176,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
             pnlMenuPrincipal.ResumeLayout(false);
+            pnlContenedor.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)alumnoBindingSource).EndInit();
             pnlTop.ResumeLayout(false);
             ResumeLayout(false);
@@ -178,5 +195,6 @@
         private Panel pnlTop;
         private BindingSource alumnoBindingSource;
         private Button btnSalir;
+        private PictureBox pictureBox1;
     }
 }
