@@ -12,11 +12,9 @@ namespace GestiondeAcademiadeMusica.Forms.Profesores
 {
     public partial class ActualizarProfesor : Form
     {
-        
         private readonly AcademiaRepositorio repo;
         private readonly Profesor profesor;
 
-        
         public ActualizarProfesor()
         {
             InitializeComponent();
@@ -36,26 +34,24 @@ namespace GestiondeAcademiadeMusica.Forms.Profesores
             chkActivo.Checked = profesor.Activo;
         }
 
-
         private bool Validar()
         {
             var errores = new List<string>();
+
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
-            {
                 errores.Add("Nombre obligatorio");
-            }
+
             if (string.IsNullOrWhiteSpace(txtApellido.Text))
-            {
                 errores.Add("Apellido obligatorio");
-            }
+
             if (!string.IsNullOrWhiteSpace(txtEmail.Text) && !txtEmail.Text.Contains("@"))
-            {
                 errores.Add("Email inválido");
-            }
+
             if (string.IsNullOrWhiteSpace(cmbEspecialidad.Text))
-            {
                 errores.Add("Especialidad obligatoria");
-            }
+
+            if (!decimal.TryParse(txtTarifa.Text.Trim(), out decimal tarifa) || tarifa <= 0)
+                errores.Add("Tarifa por hora inválida (debe ser un número mayor a 0)");
 
             if (errores.Any())
             {
@@ -67,10 +63,8 @@ namespace GestiondeAcademiadeMusica.Forms.Profesores
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
             if (!Validar()) return;
 
-            
             profesor.Nombre = txtNombre.Text.Trim();
             profesor.Apellido = txtApellido.Text.Trim();
             profesor.Telefono = txtTelefono.Text.Trim();
@@ -81,9 +75,7 @@ namespace GestiondeAcademiadeMusica.Forms.Profesores
 
             repo.ActualizarProfesor(profesor);
 
-            
             MessageBox.Show("Profesor actualizado correctamente.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

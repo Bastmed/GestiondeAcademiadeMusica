@@ -56,5 +56,10 @@ namespace GestiondeAcademiadeMusica.Forms.UserControls
             formActualizar.ShowDialog();
             cargarDatos();
         }
+
+        private void dgvInstrumentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

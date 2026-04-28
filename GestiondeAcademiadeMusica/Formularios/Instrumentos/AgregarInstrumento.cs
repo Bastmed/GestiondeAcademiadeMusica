@@ -18,7 +18,6 @@ namespace GestiondeAcademiadeMusica.Forms
         public AgregarInstrumento()
         {
             InitializeComponent();
-            numPrecioInstrumento.Maximum = 9999999;
         }
 
         public AgregarInstrumento(AcademiaRepositorio repo) : this()
@@ -30,26 +29,18 @@ namespace GestiondeAcademiadeMusica.Forms
         private bool Validar()
         {
             var errores = new List<string>();
+
             if (string.IsNullOrWhiteSpace(txtNombreInstrumento.Text))
-            {
                 errores.Add("Nombre obligatorio");
-            }
+
             if (string.IsNullOrWhiteSpace(txtMarcaInstrumento.Text))
-            {
                 errores.Add("Marca obligatoria");
-            }
+
             if (cmbCategoriaInstrumento.SelectedIndex == -1)
-            {
                 errores.Add("Categoría obligatoria");
-            }
-            if (numPrecioInstrumento.Value <= 0)
-            {
-                errores.Add("Precio mensual debe ser mayor a 0");
-            }
+
             if (cmbEstadoInstrumento.SelectedIndex == -1)
-            {
                 errores.Add("Estado obligatorio");
-            }
 
             if (errores.Any())
             {
@@ -62,16 +53,15 @@ namespace GestiondeAcademiadeMusica.Forms
         private void btnEnviar_Click(object sender, EventArgs e)
         {
             if (!Validar()) return;
+
             InstrumentoActual.Nombre = txtNombreInstrumento.Text.Trim();
             InstrumentoActual.Marca = txtMarcaInstrumento.Text.Trim();
             InstrumentoActual.Categoria = cmbCategoriaInstrumento.SelectedItem.ToString();
-            InstrumentoActual.PrecioMensual = numPrecioInstrumento.Value;
             InstrumentoActual.Estado = cmbEstadoInstrumento.SelectedItem.ToString();
             repo.AgregarInstrumento(InstrumentoActual);
 
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
-
     }
 }

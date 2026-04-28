@@ -30,6 +30,10 @@
         {
             components = new System.ComponentModel.Container();
             dgvAlumnos = new DataGridView();
+            alumnoBindingSource = new BindingSource(components);
+            btnAgregar = new Button();
+            btnEliminar = new Button();
+            btnActualizar = new Button();
             idAlumnoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             apellidoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -38,10 +42,6 @@
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             activoDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
             idInstrumentoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            alumnoBindingSource = new BindingSource(components);
-            btnAgregar = new Button();
-            btnEliminar = new Button();
-            btnActualizar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvAlumnos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)alumnoBindingSource).BeginInit();
             SuspendLayout();
@@ -57,54 +57,6 @@
             dgvAlumnos.Name = "dgvAlumnos";
             dgvAlumnos.Size = new Size(843, 218);
             dgvAlumnos.TabIndex = 1;
-            // 
-            // idAlumnoDataGridViewTextBoxColumn
-            // 
-            idAlumnoDataGridViewTextBoxColumn.DataPropertyName = "IdAlumno";
-            idAlumnoDataGridViewTextBoxColumn.HeaderText = "IdAlumno";
-            idAlumnoDataGridViewTextBoxColumn.Name = "idAlumnoDataGridViewTextBoxColumn";
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            // 
-            // apellidoDataGridViewTextBoxColumn
-            // 
-            apellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido";
-            apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
-            apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
-            // 
-            // fechaNacimientoDataGridViewTextBoxColumn
-            // 
-            fechaNacimientoDataGridViewTextBoxColumn.DataPropertyName = "FechaNacimiento";
-            fechaNacimientoDataGridViewTextBoxColumn.HeaderText = "FechaNacimiento";
-            fechaNacimientoDataGridViewTextBoxColumn.Name = "fechaNacimientoDataGridViewTextBoxColumn";
-            // 
-            // telefonoDataGridViewTextBoxColumn
-            // 
-            telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
-            telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
-            telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // activoDataGridViewCheckBoxColumn
-            // 
-            activoDataGridViewCheckBoxColumn.DataPropertyName = "Activo";
-            activoDataGridViewCheckBoxColumn.HeaderText = "Activo";
-            activoDataGridViewCheckBoxColumn.Name = "activoDataGridViewCheckBoxColumn";
-            // 
-            // idInstrumentoDataGridViewTextBoxColumn
-            // 
-            idInstrumentoDataGridViewTextBoxColumn.DataPropertyName = "IdInstrumento";
-            idInstrumentoDataGridViewTextBoxColumn.HeaderText = "IdInstrumento";
-            idInstrumentoDataGridViewTextBoxColumn.Name = "idInstrumentoDataGridViewTextBoxColumn";
             // 
             // alumnoBindingSource
             // 
@@ -140,6 +92,61 @@
             btnActualizar.UseVisualStyleBackColor = true;
             btnActualizar.Click += btnActualizar_Click;
             // 
+            // idAlumnoDataGridViewTextBoxColumn
+            // 
+            idAlumnoDataGridViewTextBoxColumn.DataPropertyName = "IdAlumno";
+            idAlumnoDataGridViewTextBoxColumn.HeaderText = "IdAlumno";
+            idAlumnoDataGridViewTextBoxColumn.Name = "idAlumnoDataGridViewTextBoxColumn";
+            idAlumnoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // apellidoDataGridViewTextBoxColumn
+            // 
+            apellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido";
+            apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
+            apellidoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaNacimientoDataGridViewTextBoxColumn
+            // 
+            fechaNacimientoDataGridViewTextBoxColumn.DataPropertyName = "FechaNacimiento";
+            fechaNacimientoDataGridViewTextBoxColumn.HeaderText = "FechaNacimiento";
+            fechaNacimientoDataGridViewTextBoxColumn.Name = "fechaNacimientoDataGridViewTextBoxColumn";
+            fechaNacimientoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // telefonoDataGridViewTextBoxColumn
+            // 
+            telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
+            telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
+            telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
+            telefonoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // activoDataGridViewCheckBoxColumn
+            // 
+            activoDataGridViewCheckBoxColumn.DataPropertyName = "Activo";
+            activoDataGridViewCheckBoxColumn.HeaderText = "Activo";
+            activoDataGridViewCheckBoxColumn.Name = "activoDataGridViewCheckBoxColumn";
+            // 
+            // idInstrumentoDataGridViewTextBoxColumn
+            // 
+            idInstrumentoDataGridViewTextBoxColumn.DataPropertyName = "IdInstrumento";
+            idInstrumentoDataGridViewTextBoxColumn.HeaderText = "IdInstrumento";
+            idInstrumentoDataGridViewTextBoxColumn.Name = "idInstrumentoDataGridViewTextBoxColumn";
+            idInstrumentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // Uc_Alumnos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -161,6 +168,7 @@
         private Button btnAgregar;
         private Button btnEliminar;
         private Button btnActualizar;
+        private BindingSource alumnoBindingSource;
         private DataGridViewTextBoxColumn idAlumnoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
@@ -169,6 +177,5 @@
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn activoDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn idInstrumentoDataGridViewTextBoxColumn;
-        private BindingSource alumnoBindingSource;
     }
 }

@@ -33,7 +33,6 @@ namespace GestiondeAcademiadeMusica
                 existing.Nombre = i.Nombre;
                 existing.Categoria = i.Categoria;
                 existing.Marca = i.Marca;
-                existing.PrecioMensual = i.PrecioMensual;
                 existing.Estado = i.Estado;
             }
         }
@@ -105,8 +104,8 @@ namespace GestiondeAcademiadeMusica
 
         private void CargarDatosEjemplo()
         {
-            AgregarInstrumento(new Instrumento { Nombre = "Guitarra", Categoria = "Cuerda", Marca = "Yamaha", PrecioMensual = 15000 });
-            AgregarInstrumento(new Instrumento { Nombre = "Piano", Categoria = "Teclas", Marca = "Casio", PrecioMensual = 20000 });
+            AgregarInstrumento(new Instrumento { Nombre = "Guitarra", Categoria = "Cuerda", Marca = "Yamaha" });
+            AgregarInstrumento(new Instrumento { Nombre = "Piano", Categoria = "Teclas", Marca = "Casio" });
 
             AgregarProfesor(new Profesor { Nombre = "Carlos", Apellido = "Mendoza", Telefono = "912345678", Email = "carlos@academia.cl", Especialidad = "Guitarra", TarifaHora = 15000 });
 

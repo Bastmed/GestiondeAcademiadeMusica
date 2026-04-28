@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GestiondeAcademiadeMusica.Forms.Profesores 
+namespace GestiondeAcademiadeMusica.Forms.Profesores
 {
     public partial class AgregarProfesor : Form
     {
@@ -26,26 +26,24 @@ namespace GestiondeAcademiadeMusica.Forms.Profesores
             ProfesorActual = new Profesor();
         }
 
-
         private bool Validar()
         {
             var errores = new List<string>();
+
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
-            {
                 errores.Add("Nombre obligatorio");
-            }
+
             if (string.IsNullOrWhiteSpace(txtApellido.Text))
-            {
                 errores.Add("Apellido obligatorio");
-            }
+
             if (!string.IsNullOrWhiteSpace(txtEmail.Text) && !txtEmail.Text.Contains("@"))
-            {
                 errores.Add("Email inválido");
-            }
+
             if (string.IsNullOrWhiteSpace(cmbEspecialidad.Text))
-            {
                 errores.Add("Especialidad obligatoria");
-            }
+
+            if (!decimal.TryParse(txtTarifa.Text.Trim(), out decimal tarifa) || tarifa <= 0)
+                errores.Add("Tarifa por hora inválida (debe ser un número mayor a 0)");
 
             if (errores.Any())
             {
@@ -54,7 +52,6 @@ namespace GestiondeAcademiadeMusica.Forms.Profesores
             }
             return true;
         }
-
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {

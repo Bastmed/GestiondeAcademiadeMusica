@@ -30,18 +30,17 @@
         {
             components = new System.ComponentModel.Container();
             dgvInstrumentos = new DataGridView();
-            idInstrumentoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            categoriaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            marcaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            precioMensualDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            estadoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             instrumentoBindingSource1 = new BindingSource(components);
             btnAgregar = new Button();
             btnEliminar = new Button();
             btnActualizar = new Button();
             profesorBindingSource = new BindingSource(components);
             instrumentoBindingSource = new BindingSource(components);
+            idInstrumentoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            categoriaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            marcaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            estadoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvInstrumentos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)instrumentoBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)profesorBindingSource).BeginInit();
@@ -53,48 +52,13 @@
             dgvInstrumentos.AllowUserToOrderColumns = true;
             dgvInstrumentos.AutoGenerateColumns = false;
             dgvInstrumentos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvInstrumentos.Columns.AddRange(new DataGridViewColumn[] { idInstrumentoDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, categoriaDataGridViewTextBoxColumn, marcaDataGridViewTextBoxColumn, precioMensualDataGridViewTextBoxColumn, estadoDataGridViewTextBoxColumn });
+            dgvInstrumentos.Columns.AddRange(new DataGridViewColumn[] { idInstrumentoDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, categoriaDataGridViewTextBoxColumn, marcaDataGridViewTextBoxColumn, estadoDataGridViewTextBoxColumn });
             dgvInstrumentos.DataSource = instrumentoBindingSource1;
             dgvInstrumentos.Location = new Point(3, 34);
             dgvInstrumentos.Name = "dgvInstrumentos";
             dgvInstrumentos.Size = new Size(843, 218);
             dgvInstrumentos.TabIndex = 2;
-            // 
-            // idInstrumentoDataGridViewTextBoxColumn
-            // 
-            idInstrumentoDataGridViewTextBoxColumn.DataPropertyName = "IdInstrumento";
-            idInstrumentoDataGridViewTextBoxColumn.HeaderText = "IdInstrumento";
-            idInstrumentoDataGridViewTextBoxColumn.Name = "idInstrumentoDataGridViewTextBoxColumn";
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            // 
-            // categoriaDataGridViewTextBoxColumn
-            // 
-            categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
-            categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
-            categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
-            // 
-            // marcaDataGridViewTextBoxColumn
-            // 
-            marcaDataGridViewTextBoxColumn.DataPropertyName = "Marca";
-            marcaDataGridViewTextBoxColumn.HeaderText = "Marca";
-            marcaDataGridViewTextBoxColumn.Name = "marcaDataGridViewTextBoxColumn";
-            // 
-            // precioMensualDataGridViewTextBoxColumn
-            // 
-            precioMensualDataGridViewTextBoxColumn.DataPropertyName = "PrecioMensual";
-            precioMensualDataGridViewTextBoxColumn.HeaderText = "PrecioMensual";
-            precioMensualDataGridViewTextBoxColumn.Name = "precioMensualDataGridViewTextBoxColumn";
-            // 
-            // estadoDataGridViewTextBoxColumn
-            // 
-            estadoDataGridViewTextBoxColumn.DataPropertyName = "Estado";
-            estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
-            estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            dgvInstrumentos.CellContentClick += dgvInstrumentos_CellContentClick;
             // 
             // instrumentoBindingSource1
             // 
@@ -138,6 +102,41 @@
             // 
             instrumentoBindingSource.DataSource = typeof(Instrumento);
             // 
+            // idInstrumentoDataGridViewTextBoxColumn
+            // 
+            idInstrumentoDataGridViewTextBoxColumn.DataPropertyName = "IdInstrumento";
+            idInstrumentoDataGridViewTextBoxColumn.HeaderText = "IdInstrumento";
+            idInstrumentoDataGridViewTextBoxColumn.Name = "idInstrumentoDataGridViewTextBoxColumn";
+            idInstrumentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // categoriaDataGridViewTextBoxColumn
+            // 
+            categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
+            categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
+            categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
+            categoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // marcaDataGridViewTextBoxColumn
+            // 
+            marcaDataGridViewTextBoxColumn.DataPropertyName = "Marca";
+            marcaDataGridViewTextBoxColumn.HeaderText = "Marca";
+            marcaDataGridViewTextBoxColumn.Name = "marcaDataGridViewTextBoxColumn";
+            marcaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // estadoDataGridViewTextBoxColumn
+            // 
+            estadoDataGridViewTextBoxColumn.DataPropertyName = "Estado";
+            estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
+            estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            estadoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // Uc_Instrumentos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -163,12 +162,11 @@
         private Button btnEliminar;
         private Button btnActualizar;
         private BindingSource profesorBindingSource;
+        private BindingSource instrumentoBindingSource1;
         private DataGridViewTextBoxColumn idInstrumentoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn categoriaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn marcaDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn precioMensualDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
-        private BindingSource instrumentoBindingSource1;
     }
 }

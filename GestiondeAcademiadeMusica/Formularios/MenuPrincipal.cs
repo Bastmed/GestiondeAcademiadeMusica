@@ -27,11 +27,7 @@ namespace GestiondeAcademiadeMusica
 
             ucAlumnos = new Uc_Alumnos(repo);
             ucInstrumentos = new Uc_Instrumentos(repo);
-
-            // --- EL CAMBIO ESTÁ AQUÍ ---
-            // Ahora nace igual que Alumnos e Instrumentos
             ucProfesores = new Uc_Profesores(repo);
-            // ---------------------------
 
             ucAlumnos.Dock = DockStyle.Fill;
             ucInstrumentos.Dock = DockStyle.Fill;
@@ -62,13 +58,6 @@ namespace GestiondeAcademiadeMusica
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            var formAlumno = new AgregarAlumno(repo);
-            formAlumno.Show();
         }
     }
 }

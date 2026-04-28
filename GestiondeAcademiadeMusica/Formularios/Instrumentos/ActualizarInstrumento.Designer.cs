@@ -31,15 +31,12 @@
             btnGuardar = new Button();
             cmbEstadoInstrumento = new ComboBox();
             lblEstadoInstrumento = new Label();
-            lblPrecioInstrumento = new Label();
-            numPrecioInstrumento = new NumericUpDown();
             txtMarcaInstrumento = new TextBox();
             lblMarcaInstrumento = new Label();
             cmbCategoriaInstrumento = new ComboBox();
             lblCategoriaInstrumento = new Label();
             txtNombreInstrumento = new TextBox();
             lblNombreInstrumento = new Label();
-            ((System.ComponentModel.ISupportInitialize)numPrecioInstrumento).BeginInit();
             SuspendLayout();
             // 
             // btnGuardar
@@ -69,22 +66,6 @@
             lblEstadoInstrumento.Size = new Size(132, 15);
             lblEstadoInstrumento.TabIndex = 23;
             lblEstadoInstrumento.Text = "Estado del instrumento:";
-            // 
-            // lblPrecioInstrumento
-            // 
-            lblPrecioInstrumento.AutoSize = true;
-            lblPrecioInstrumento.Location = new Point(411, 103);
-            lblPrecioInstrumento.Name = "lblPrecioInstrumento";
-            lblPrecioInstrumento.Size = new Size(91, 15);
-            lblPrecioInstrumento.TabIndex = 22;
-            lblPrecioInstrumento.Text = "Precio mensual:";
-            // 
-            // numPrecioInstrumento
-            // 
-            numPrecioInstrumento.Location = new Point(411, 121);
-            numPrecioInstrumento.Name = "numPrecioInstrumento";
-            numPrecioInstrumento.Size = new Size(120, 23);
-            numPrecioInstrumento.TabIndex = 21;
             // 
             // txtMarcaInstrumento
             // 
@@ -144,8 +125,6 @@
             Controls.Add(btnGuardar);
             Controls.Add(cmbEstadoInstrumento);
             Controls.Add(lblEstadoInstrumento);
-            Controls.Add(lblPrecioInstrumento);
-            Controls.Add(numPrecioInstrumento);
             Controls.Add(txtMarcaInstrumento);
             Controls.Add(lblMarcaInstrumento);
             Controls.Add(cmbCategoriaInstrumento);
@@ -155,7 +134,6 @@
             Name = "ActualizarInstrumento";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ActualizarInstrumento";
-            ((System.ComponentModel.ISupportInitialize)numPrecioInstrumento).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -165,8 +143,6 @@
         private Button btnGuardar;
         private ComboBox cmbEstadoInstrumento;
         private Label lblEstadoInstrumento;
-        private Label lblPrecioInstrumento;
-        private NumericUpDown numPrecioInstrumento;
         private TextBox txtMarcaInstrumento;
         private Label lblMarcaInstrumento;
         private ComboBox cmbCategoriaInstrumento;
