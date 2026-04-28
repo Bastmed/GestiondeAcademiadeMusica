@@ -1,6 +1,6 @@
 ﻿namespace GestiondeAcademiadeMusica.Forms.Alumnos
 {
-    partial class ActulizarAlumno
+    partial class ActualizarAlumno
     {
         /// <summary>
         /// Required designer variable.
@@ -92,7 +92,7 @@
             lblTelefonoAlumno.AutoSize = true;
             lblTelefonoAlumno.Location = new Point(95, 287);
             lblTelefonoAlumno.Name = "lblTelefonoAlumno";
-            lblTelefonoAlumno.Size = new Size(56, 15);
+            lblTelefonoAlumno.Size = new Size(55, 15);
             lblTelefonoAlumno.TabIndex = 22;
             lblTelefonoAlumno.Text = "Telefono:";
             // 
@@ -171,7 +171,7 @@
             cmbInstrumento.Size = new Size(121, 23);
             cmbInstrumento.TabIndex = 30;
             // 
-            // ActulizarAlumno
+            // ActualizarAlumno
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -191,7 +191,8 @@
             Controls.Add(lblApellidoAlumno);
             Controls.Add(txtNombreAlumno);
             Controls.Add(lblNombreAlumno);
-            Name = "ActulizarAlumno";
+            Name = "ActualizarAlumno";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ActulizarAlumno";
             ResumeLayout(false);
             PerformLayout();

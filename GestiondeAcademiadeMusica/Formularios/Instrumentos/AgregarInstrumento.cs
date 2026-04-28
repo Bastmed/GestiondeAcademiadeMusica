@@ -29,33 +29,34 @@ namespace GestiondeAcademiadeMusica.Forms
 
         private bool Validar()
         {
-            bool ok = true;
+            var errores = new List<string>();
             if (string.IsNullOrWhiteSpace(txtNombreInstrumento.Text))
             {
-                MessageBox.Show("Nombre obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                errores.Add("Nombre obligatorio");
             }
             if (string.IsNullOrWhiteSpace(txtMarcaInstrumento.Text))
             {
-                MessageBox.Show("Marca obligatoria", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                errores.Add("Marca obligatoria");
             }
             if (cmbCategoriaInstrumento.SelectedIndex == -1)
             {
-                MessageBox.Show("Categoría obligatoria", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                errores.Add("Categoría obligatoria");
             }
             if (numPrecioInstrumento.Value <= 0)
             {
-                MessageBox.Show("Precio obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                errores.Add("Precio mensual debe ser mayor a 0");
             }
             if (cmbEstadoInstrumento.SelectedIndex == -1)
             {
-                MessageBox.Show("Estado obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                errores.Add("Estado obligatorio");
             }
-            return ok;
+
+            if (errores.Any())
+            {
+                MessageBox.Show(string.Join(Environment.NewLine, errores), "Error: Ingresa los datos correctamente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
 
         private void btnEnviar_Click(object sender, EventArgs e)
@@ -71,5 +72,6 @@ namespace GestiondeAcademiadeMusica.Forms
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
     }
 }

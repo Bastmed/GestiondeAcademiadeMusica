@@ -54,7 +54,7 @@ namespace GestiondeAcademiadeMusica.Forms
                 return;
             }
             Alumno seleccionado = (Alumno)dgvAlumnos.CurrentRow.DataBoundItem;
-            var form = new ActulizarAlumno(repo, seleccionado);
+            var form = new ActualizarAlumno(repo, seleccionado);
             form.ShowDialog();
             cargarDatos();
         }

@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace GestiondeAcademiadeMusica.Forms.Alumnos
 {
-    public partial class ActulizarAlumno : Form
+    public partial class ActualizarAlumno : Form
     {
         private readonly AcademiaRepositorio repo;
         private readonly Alumno alumno;
 
-        public ActulizarAlumno()
+        public ActualizarAlumno()
         {
             InitializeComponent();
         }
 
-        public ActulizarAlumno(AcademiaRepositorio repo, Alumno alumno) : this()
+        public ActualizarAlumno(AcademiaRepositorio repo, Alumno alumno) : this()
         {
             this.repo = repo;
             this.alumno = alumno;
@@ -28,7 +28,6 @@ namespace GestiondeAcademiadeMusica.Forms.Alumnos
             cmbInstrumento.DisplayMember = "Nombre";
             cmbInstrumento.DataSource = repo.Instrumentos;
 
-            // Preseleccionar el instrumento actual del alumno
             var instrumentoActual = repo.Instrumentos.FirstOrDefault(x => x.IdInstrumento == alumno.IdInstrumento);
             if (instrumentoActual != null)
                 cmbInstrumento.SelectedItem = instrumentoActual;
@@ -43,23 +42,34 @@ namespace GestiondeAcademiadeMusica.Forms.Alumnos
 
         private bool Validar()
         {
-            bool ok = true;
+            var errores = new List<string>();
             if (string.IsNullOrWhiteSpace(txtNombreAlumno.Text))
             {
-                MessageBox.Show("Nombre obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                errores.Add("Nombre obligatorio");
             }
             if (string.IsNullOrWhiteSpace(txtApellidoAlumno.Text))
             {
-                MessageBox.Show("Apellido obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                errores.Add("Apellido obligatorio");
             }
-            if (!string.IsNullOrWhiteSpace(txtEmailAlumno.Text) && !txtEmailAlumno.Text.Contains("@"))
+            if (string.IsNullOrWhiteSpace(txtTelefonoAlumno.Text))
             {
-                MessageBox.Show("Email inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                errores.Add("Teléfono obligatorio");
             }
-            return ok;
+            if (string.IsNullOrWhiteSpace(txtEmailAlumno.Text))
+            {
+                errores.Add("Email obligatorio");
+            }
+            if (cmbInstrumento.SelectedIndex == -1)
+            {
+                errores.Add("Instrumento obligatorio");
+            }
+
+            if (errores.Any())
+            {
+                MessageBox.Show(string.Join(Environment.NewLine, errores), "Error: Ingresa los datos correctamente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

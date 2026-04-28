@@ -28,23 +28,34 @@ namespace GestiondeAcademiadeMusica.Forms
         }
         private bool Validar()
         {
-            bool ok = true;
+            var errores = new List<string>();
             if (string.IsNullOrWhiteSpace(txtNombreAlumno.Text))
             {
-                MessageBox.Show("Nombre obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                errores.Add("Nombre obligatorio");
             }
             if (string.IsNullOrWhiteSpace(txtApellidoAlumno.Text))
             {
-                MessageBox.Show("Apellido obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                errores.Add("Apellido obligatorio");
             }
-            if (!string.IsNullOrWhiteSpace(txtEmailAlumno.Text) && !txtEmailAlumno.Text.Contains("@"))
+            if (string.IsNullOrWhiteSpace(txtTelefonoAlumno.Text))
             {
-                MessageBox.Show("Email inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                errores.Add("Teléfono obligatorio");
             }
-            return ok;
+            if (string.IsNullOrWhiteSpace(txtEmailAlumno.Text))
+            {
+                errores.Add("Email obligatorio");
+            }
+            if (cmbInstrumentoAgr.SelectedIndex == -1)
+            {
+                errores.Add("Instrumento obligatorio");
+            }
+            
+            if (errores.Any())
+            {
+                MessageBox.Show(string.Join(Environment.NewLine, errores), "Error: Ingresa los datos correctamente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
 
         private void btnEnviar_Click(object sender, EventArgs e)

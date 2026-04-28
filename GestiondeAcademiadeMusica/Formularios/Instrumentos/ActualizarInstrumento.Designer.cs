@@ -153,6 +153,7 @@
             Controls.Add(txtNombreInstrumento);
             Controls.Add(lblNombreInstrumento);
             Name = "ActualizarInstrumento";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ActualizarInstrumento";
             ((System.ComponentModel.ISupportInitialize)numPrecioInstrumento).EndInit();
             ResumeLayout(false);

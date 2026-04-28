@@ -55,37 +55,33 @@
             pnlMenuPrincipal.Controls.Add(btnAlumnos);
             pnlMenuPrincipal.Dock = DockStyle.Left;
             pnlMenuPrincipal.Location = new Point(0, 0);
-            pnlMenuPrincipal.Margin = new Padding(3, 4, 3, 4);
             pnlMenuPrincipal.Name = "pnlMenuPrincipal";
-            pnlMenuPrincipal.Size = new Size(176, 700);
+            pnlMenuPrincipal.Size = new Size(154, 525);
             pnlMenuPrincipal.TabIndex = 1;
             // 
             // pnlProfesores
             // 
             pnlProfesores.BackColor = Color.DarkBlue;
-            pnlProfesores.Location = new Point(0, 212);
-            pnlProfesores.Margin = new Padding(3, 4, 3, 4);
+            pnlProfesores.Location = new Point(0, 159);
             pnlProfesores.Name = "pnlProfesores";
-            pnlProfesores.Size = new Size(11, 37);
+            pnlProfesores.Size = new Size(10, 28);
             pnlProfesores.TabIndex = 4;
             // 
             // pnlInstrumentos
             // 
             pnlInstrumentos.BackColor = Color.DarkBlue;
-            pnlInstrumentos.Location = new Point(0, 167);
-            pnlInstrumentos.Margin = new Padding(3, 4, 3, 4);
+            pnlInstrumentos.Location = new Point(0, 125);
             pnlInstrumentos.Name = "pnlInstrumentos";
-            pnlInstrumentos.Size = new Size(11, 37);
+            pnlInstrumentos.Size = new Size(10, 28);
             pnlInstrumentos.TabIndex = 4;
             // 
             // btnProfesores
             // 
             btnProfesores.FlatAppearance.BorderSize = 0;
             btnProfesores.FlatStyle = FlatStyle.Flat;
-            btnProfesores.Location = new Point(14, 212);
-            btnProfesores.Margin = new Padding(3, 4, 3, 4);
+            btnProfesores.Location = new Point(12, 159);
             btnProfesores.Name = "btnProfesores";
-            btnProfesores.Size = new Size(162, 37);
+            btnProfesores.Size = new Size(142, 28);
             btnProfesores.TabIndex = 3;
             btnProfesores.Text = "Profesores";
             btnProfesores.UseVisualStyleBackColor = true;
@@ -94,20 +90,18 @@
             // pnlAlumnos
             // 
             pnlAlumnos.BackColor = Color.DarkBlue;
-            pnlAlumnos.Location = new Point(0, 121);
-            pnlAlumnos.Margin = new Padding(3, 4, 3, 4);
+            pnlAlumnos.Location = new Point(0, 91);
             pnlAlumnos.Name = "pnlAlumnos";
-            pnlAlumnos.Size = new Size(11, 37);
+            pnlAlumnos.Size = new Size(10, 28);
             pnlAlumnos.TabIndex = 2;
             // 
             // btnInstrumentos
             // 
             btnInstrumentos.FlatAppearance.BorderSize = 0;
             btnInstrumentos.FlatStyle = FlatStyle.Flat;
-            btnInstrumentos.Location = new Point(14, 167);
-            btnInstrumentos.Margin = new Padding(3, 4, 3, 4);
+            btnInstrumentos.Location = new Point(12, 125);
             btnInstrumentos.Name = "btnInstrumentos";
-            btnInstrumentos.Size = new Size(162, 37);
+            btnInstrumentos.Size = new Size(142, 28);
             btnInstrumentos.TabIndex = 3;
             btnInstrumentos.Text = "Instrumentos";
             btnInstrumentos.UseVisualStyleBackColor = true;
@@ -117,10 +111,9 @@
             // 
             btnAlumnos.FlatAppearance.BorderSize = 0;
             btnAlumnos.FlatStyle = FlatStyle.Flat;
-            btnAlumnos.Location = new Point(14, 121);
-            btnAlumnos.Margin = new Padding(3, 4, 3, 4);
+            btnAlumnos.Location = new Point(12, 91);
             btnAlumnos.Name = "btnAlumnos";
-            btnAlumnos.Size = new Size(162, 37);
+            btnAlumnos.Size = new Size(142, 28);
             btnAlumnos.TabIndex = 0;
             btnAlumnos.Text = "Alumnos";
             btnAlumnos.UseVisualStyleBackColor = true;
@@ -128,10 +121,9 @@
             // 
             // pnlContenedor
             // 
-            pnlContenedor.Location = new Point(176, 121);
-            pnlContenedor.Margin = new Padding(3, 4, 3, 4);
+            pnlContenedor.Location = new Point(154, 91);
             pnlContenedor.Name = "pnlContenedor";
-            pnlContenedor.Size = new Size(1067, 575);
+            pnlContenedor.Size = new Size(934, 431);
             pnlContenedor.TabIndex = 2;
             // 
             // alumnoBindingSource
@@ -142,18 +134,16 @@
             // 
             pnlTop.Controls.Add(btnSalir);
             pnlTop.Dock = DockStyle.Top;
-            pnlTop.Location = new Point(176, 0);
-            pnlTop.Margin = new Padding(3, 4, 3, 4);
+            pnlTop.Location = new Point(154, 0);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(1067, 123);
+            pnlTop.Size = new Size(934, 92);
             pnlTop.TabIndex = 3;
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(968, 51);
-            btnSalir.Margin = new Padding(3, 4, 3, 4);
+            btnSalir.Location = new Point(847, 38);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(86, 31);
+            btnSalir.Size = new Size(75, 23);
             btnSalir.TabIndex = 0;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -161,14 +151,14 @@
             // 
             // MenuPrincipal
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1243, 700);
+            ClientSize = new Size(1088, 525);
             Controls.Add(pnlTop);
             Controls.Add(pnlContenedor);
             Controls.Add(pnlMenuPrincipal);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "MenuPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
             pnlMenuPrincipal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)alumnoBindingSource).EndInit();

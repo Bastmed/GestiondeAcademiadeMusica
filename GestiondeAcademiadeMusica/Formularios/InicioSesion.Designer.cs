@@ -90,7 +90,7 @@
             label1.TabIndex = 5;
             label1.Text = "Inicio de sesión";
             // 
-            // Form1
+            // InicioSesion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -101,7 +101,8 @@
             Controls.Add(lblNombre);
             Controls.Add(txtNombreUsuario);
             Controls.Add(btnIniciarSesion);
-            Name = "Form1";
+            Name = "InicioSesion";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();

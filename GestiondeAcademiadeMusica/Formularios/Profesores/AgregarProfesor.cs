@@ -27,42 +27,32 @@ namespace GestiondeAcademiadeMusica.Forms.Profesores
         }
 
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private bool Validar()
         {
-            bool ok = true;
+            var errores = new List<string>();
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
-                MessageBox.Show("Nombre obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                errores.Add("Nombre obligatorio");
             }
             if (string.IsNullOrWhiteSpace(txtApellido.Text))
             {
-                MessageBox.Show("Apellido obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                errores.Add("Apellido obligatorio");
             }
             if (!string.IsNullOrWhiteSpace(txtEmail.Text) && !txtEmail.Text.Contains("@"))
             {
-                MessageBox.Show("Email inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                errores.Add("Email inválido");
             }
             if (string.IsNullOrWhiteSpace(cmbEspecialidad.Text))
             {
-                MessageBox.Show("Especialidad obligatoria", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                errores.Add("Especialidad obligatoria");
             }
 
-            decimal tarifaValidada;
-            if (string.IsNullOrWhiteSpace(txtTarifa.Text) || !decimal.TryParse(txtTarifa.Text, out tarifaValidada))
+            if (errores.Any())
             {
-                MessageBox.Show("La tarifa debe ser un número válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ok = false;
+                MessageBox.Show(string.Join(Environment.NewLine, errores), "Error: Ingresa los datos correctamente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-            return ok;
+            return true;
         }
 
 

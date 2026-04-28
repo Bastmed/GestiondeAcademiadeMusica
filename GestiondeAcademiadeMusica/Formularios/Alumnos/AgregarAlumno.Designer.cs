@@ -105,7 +105,7 @@
             lblTelefonoAlumno.AutoSize = true;
             lblTelefonoAlumno.Location = new Point(94, 284);
             lblTelefonoAlumno.Name = "lblTelefonoAlumno";
-            lblTelefonoAlumno.Size = new Size(56, 15);
+            lblTelefonoAlumno.Size = new Size(55, 15);
             lblTelefonoAlumno.TabIndex = 7;
             lblTelefonoAlumno.Text = "Telefono:";
             // 
@@ -193,6 +193,7 @@
             Controls.Add(txtNombreAlumno);
             Controls.Add(lblNombreAlumno);
             Name = "AgregarAlumno";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormularioAlumno";
             ResumeLayout(false);
             PerformLayout();

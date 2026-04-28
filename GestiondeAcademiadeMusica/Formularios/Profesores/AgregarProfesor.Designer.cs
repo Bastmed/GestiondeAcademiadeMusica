@@ -201,6 +201,7 @@
             Controls.Add(txtNombre);
             Margin = new Padding(3, 2, 3, 2);
             Name = "AgregarProfesor";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AgregarProfesor";
             ResumeLayout(false);
             PerformLayout();

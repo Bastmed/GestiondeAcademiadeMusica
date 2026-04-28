@@ -153,6 +153,7 @@
             Controls.Add(txtNombreInstrumento);
             Controls.Add(lblNombreInstrumento);
             Name = "AgregarInstrumento";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormularioInstrumentos";
             ((System.ComponentModel.ISupportInitialize)numPrecioInstrumento).EndInit();
             ResumeLayout(false);
