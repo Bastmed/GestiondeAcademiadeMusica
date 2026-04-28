@@ -32,12 +32,14 @@
             btnActualizar = new Button();
             btnEliminar = new Button();
             dgvProfesores = new DataGridView();
+            lblBuscar = new Label();
+            txtBuscar = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvProfesores).BeginInit();
             SuspendLayout();
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(844, 35);
+            btnAgregar.Location = new Point(845, 35);
             btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(82, 22);
@@ -48,7 +50,7 @@
             // 
             // btnActualizar
             // 
-            btnActualizar.Location = new Point(844, 62);
+            btnActualizar.Location = new Point(845, 77);
             btnActualizar.Margin = new Padding(3, 2, 3, 2);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(82, 22);
@@ -59,7 +61,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(844, 88);
+            btnEliminar.Location = new Point(845, 118);
             btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(82, 22);
@@ -70,19 +72,40 @@
             // 
             // dgvProfesores
             // 
+            dgvProfesores.BackgroundColor = SystemColors.ButtonFace;
+            dgvProfesores.BorderStyle = BorderStyle.None;
             dgvProfesores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProfesores.Location = new Point(22, 35);
+            dgvProfesores.Location = new Point(3, 35);
             dgvProfesores.Margin = new Padding(3, 2, 3, 2);
             dgvProfesores.Name = "dgvProfesores";
             dgvProfesores.RowHeadersWidth = 51;
             dgvProfesores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProfesores.Size = new Size(816, 256);
+            dgvProfesores.Size = new Size(836, 256);
             dgvProfesores.TabIndex = 3;
+            // 
+            // lblBuscar
+            // 
+            lblBuscar.AutoSize = true;
+            lblBuscar.Location = new Point(84, 390);
+            lblBuscar.Name = "lblBuscar";
+            lblBuscar.Size = new Size(111, 15);
+            lblBuscar.TabIndex = 9;
+            lblBuscar.Text = "Buscar por nombre:";
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Location = new Point(201, 387);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(638, 23);
+            txtBuscar.TabIndex = 8;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // Uc_Profesores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(lblBuscar);
+            Controls.Add(txtBuscar);
             Controls.Add(dgvProfesores);
             Controls.Add(btnEliminar);
             Controls.Add(btnActualizar);
@@ -92,6 +115,7 @@
             Size = new Size(961, 450);
             ((System.ComponentModel.ISupportInitialize)dgvProfesores).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -100,5 +124,7 @@
         private Button btnActualizar;
         private Button btnEliminar;
         private DataGridView dgvProfesores;
+        private Label lblBuscar;
+        private TextBox txtBuscar;
     }
 }

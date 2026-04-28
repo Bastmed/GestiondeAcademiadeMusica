@@ -57,9 +57,21 @@ namespace GestiondeAcademiadeMusica.Forms.UserControls
             cargarDatos();
         }
 
-        private void dgvInstrumentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
+            string filtro = txtBuscar.Text.Trim().ToLower();
 
+            if (string.IsNullOrEmpty(filtro))
+            {
+                dgvInstrumentos.DataSource = null;
+                dgvInstrumentos.DataSource = repo.Instrumentos;
+            }
+            else
+            {
+                var resultado = repo.Instrumentos.Where(instrumento => instrumento.Nombre.ToLower().Contains(filtro)).ToList();
+                dgvInstrumentos.DataSource = null;
+                dgvInstrumentos.DataSource = resultado;
+            }
         }
     }
 }

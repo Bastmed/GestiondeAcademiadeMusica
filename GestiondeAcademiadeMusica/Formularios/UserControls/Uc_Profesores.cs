@@ -19,7 +19,7 @@ namespace GestiondeAcademiadeMusica.Forms.UserControls
         {
             InitializeComponent();
             this.repo = repo;
-           
+
             dgvProfesores.AllowUserToAddRows = false;
             cargarDatos();
         }
@@ -39,7 +39,7 @@ namespace GestiondeAcademiadeMusica.Forms.UserControls
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            
+
             if (dgvProfesores.CurrentRow == null || dgvProfesores.CurrentRow.IsNewRow)
             {
                 MessageBox.Show("Selecciona un profesor para eliminar.", "Aviso");
@@ -52,7 +52,7 @@ namespace GestiondeAcademiadeMusica.Forms.UserControls
             if (confirmacion == DialogResult.Yes)
             {
                 repo.EliminarProfesor(profesorSeleccionado.IdProfesor);
-                cargarDatos(); 
+                cargarDatos();
             }
         }
 
@@ -68,6 +68,23 @@ namespace GestiondeAcademiadeMusica.Forms.UserControls
             var form = new ActualizarProfesor(repo, seleccionado);
             form.ShowDialog();
             cargarDatos();
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text.Trim().ToLower();
+
+            if (string.IsNullOrEmpty(filtro))
+            {
+                dgvProfesores.DataSource = null;
+                dgvProfesores.DataSource = repo.Profesores;
+            }
+            else
+            {
+                var resultado = repo.Profesores.Where(profesor => profesor.Nombre.ToLower().Contains(filtro)).ToList();
+                dgvProfesores.DataSource = null;
+                dgvProfesores.DataSource = resultado;
+            }
         }
     }
 }

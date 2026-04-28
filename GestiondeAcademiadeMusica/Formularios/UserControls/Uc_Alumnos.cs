@@ -1,4 +1,5 @@
 ﻿using GestiondeAcademiadeMusica.Forms.Alumnos;
+using System.Linq;
 
 namespace GestiondeAcademiadeMusica.Forms
 {
@@ -58,5 +59,23 @@ namespace GestiondeAcademiadeMusica.Forms
             form.ShowDialog();
             cargarDatos();
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text.Trim().ToLower();
+
+            if (string.IsNullOrEmpty(filtro))
+            {
+                dgvAlumnos.DataSource = null;
+                dgvAlumnos.DataSource = repo.Alumnos;
+            }
+            else
+            {
+                var resultado = repo.Alumnos.Where(alumno => alumno.Nombre.ToLower().Contains(filtro)).ToList();
+                dgvAlumnos.DataSource = null;
+                dgvAlumnos.DataSource = resultado;
+            }
+        }
+
     }
 }

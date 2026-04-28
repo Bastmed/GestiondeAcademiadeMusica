@@ -30,10 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             dgvAlumnos = new DataGridView();
-            alumnoBindingSource = new BindingSource(components);
-            btnAgregar = new Button();
-            btnEliminar = new Button();
-            btnActualizar = new Button();
             idAlumnoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             apellidoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -42,6 +38,12 @@
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             activoDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
             idInstrumentoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            alumnoBindingSource = new BindingSource(components);
+            btnAgregar = new Button();
+            btnEliminar = new Button();
+            btnActualizar = new Button();
+            txtBuscar = new TextBox();
+            lblBuscar = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvAlumnos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)alumnoBindingSource).BeginInit();
             SuspendLayout();
@@ -49,48 +51,18 @@
             // dgvAlumnos
             // 
             dgvAlumnos.AllowUserToOrderColumns = true;
+            dgvAlumnos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvAlumnos.AutoGenerateColumns = false;
+            dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAlumnos.BackgroundColor = SystemColors.ButtonFace;
+            dgvAlumnos.BorderStyle = BorderStyle.None;
             dgvAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvAlumnos.Columns.AddRange(new DataGridViewColumn[] { idAlumnoDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, apellidoDataGridViewTextBoxColumn, fechaNacimientoDataGridViewTextBoxColumn, telefonoDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, activoDataGridViewCheckBoxColumn, idInstrumentoDataGridViewTextBoxColumn });
             dgvAlumnos.DataSource = alumnoBindingSource;
             dgvAlumnos.Location = new Point(3, 32);
             dgvAlumnos.Name = "dgvAlumnos";
-            dgvAlumnos.Size = new Size(843, 218);
+            dgvAlumnos.Size = new Size(843, 325);
             dgvAlumnos.TabIndex = 1;
-            // 
-            // alumnoBindingSource
-            // 
-            alumnoBindingSource.DataSource = typeof(Alumno);
-            // 
-            // btnAgregar
-            // 
-            btnAgregar.Location = new Point(852, 41);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(75, 23);
-            btnAgregar.TabIndex = 3;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.Location = new Point(852, 102);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(75, 23);
-            btnEliminar.TabIndex = 5;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click;
-            // 
-            // btnActualizar
-            // 
-            btnActualizar.Location = new Point(852, 73);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(75, 23);
-            btnActualizar.TabIndex = 4;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = true;
-            btnActualizar.Click += btnActualizar_Click;
             // 
             // idAlumnoDataGridViewTextBoxColumn
             // 
@@ -147,10 +119,63 @@
             idInstrumentoDataGridViewTextBoxColumn.Name = "idInstrumentoDataGridViewTextBoxColumn";
             idInstrumentoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // alumnoBindingSource
+            // 
+            alumnoBindingSource.DataSource = typeof(Alumno);
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(852, 32);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(75, 23);
+            btnAgregar.TabIndex = 3;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(852, 112);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.TabIndex = 5;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.Location = new Point(852, 73);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(75, 23);
+            btnActualizar.TabIndex = 4;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Location = new Point(208, 385);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(638, 23);
+            txtBuscar.TabIndex = 6;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
+            // 
+            // lblBuscar
+            // 
+            lblBuscar.AutoSize = true;
+            lblBuscar.Location = new Point(91, 388);
+            lblBuscar.Name = "lblBuscar";
+            lblBuscar.Size = new Size(111, 15);
+            lblBuscar.TabIndex = 7;
+            lblBuscar.Text = "Buscar por nombre:";
+            // 
             // Uc_Alumnos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(lblBuscar);
+            Controls.Add(txtBuscar);
             Controls.Add(btnAgregar);
             Controls.Add(btnEliminar);
             Controls.Add(btnActualizar);
@@ -160,6 +185,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvAlumnos).EndInit();
             ((System.ComponentModel.ISupportInitialize)alumnoBindingSource).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -177,5 +203,7 @@
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn activoDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn idInstrumentoDataGridViewTextBoxColumn;
+        private TextBox txtBuscar;
+        private Label lblBuscar;
     }
 }

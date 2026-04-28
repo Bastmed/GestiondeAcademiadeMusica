@@ -30,17 +30,19 @@
         {
             components = new System.ComponentModel.Container();
             dgvInstrumentos = new DataGridView();
+            idInstrumentoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            categoriaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            marcaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            estadoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             instrumentoBindingSource1 = new BindingSource(components);
             btnAgregar = new Button();
             btnEliminar = new Button();
             btnActualizar = new Button();
             profesorBindingSource = new BindingSource(components);
             instrumentoBindingSource = new BindingSource(components);
-            idInstrumentoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            categoriaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            marcaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            estadoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            lblBuscar = new Label();
+            txtBuscar = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvInstrumentos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)instrumentoBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)profesorBindingSource).BeginInit();
@@ -51,56 +53,15 @@
             // 
             dgvInstrumentos.AllowUserToOrderColumns = true;
             dgvInstrumentos.AutoGenerateColumns = false;
+            dgvInstrumentos.BackgroundColor = SystemColors.ButtonFace;
+            dgvInstrumentos.BorderStyle = BorderStyle.None;
             dgvInstrumentos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvInstrumentos.Columns.AddRange(new DataGridViewColumn[] { idInstrumentoDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, categoriaDataGridViewTextBoxColumn, marcaDataGridViewTextBoxColumn, estadoDataGridViewTextBoxColumn });
             dgvInstrumentos.DataSource = instrumentoBindingSource1;
-            dgvInstrumentos.Location = new Point(3, 34);
+            dgvInstrumentos.Location = new Point(188, 34);
             dgvInstrumentos.Name = "dgvInstrumentos";
-            dgvInstrumentos.Size = new Size(843, 218);
+            dgvInstrumentos.Size = new Size(544, 326);
             dgvInstrumentos.TabIndex = 2;
-            dgvInstrumentos.CellContentClick += dgvInstrumentos_CellContentClick;
-            // 
-            // instrumentoBindingSource1
-            // 
-            instrumentoBindingSource1.DataSource = typeof(Instrumento);
-            // 
-            // btnAgregar
-            // 
-            btnAgregar.Location = new Point(852, 34);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(75, 23);
-            btnAgregar.TabIndex = 6;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.Location = new Point(852, 95);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(75, 23);
-            btnEliminar.TabIndex = 8;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click;
-            // 
-            // btnActualizar
-            // 
-            btnActualizar.Location = new Point(852, 66);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(75, 23);
-            btnActualizar.TabIndex = 7;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = true;
-            btnActualizar.Click += btnActualizar_Click;
-            // 
-            // profesorBindingSource
-            // 
-            profesorBindingSource.DataSource = typeof(Profesor);
-            // 
-            // instrumentoBindingSource
-            // 
-            instrumentoBindingSource.DataSource = typeof(Instrumento);
             // 
             // idInstrumentoDataGridViewTextBoxColumn
             // 
@@ -137,10 +98,71 @@
             estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             estadoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // instrumentoBindingSource1
+            // 
+            instrumentoBindingSource1.DataSource = typeof(Instrumento);
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(852, 34);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(75, 23);
+            btnAgregar.TabIndex = 6;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(852, 112);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.TabIndex = 8;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.Location = new Point(852, 74);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(75, 23);
+            btnActualizar.TabIndex = 7;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
+            // 
+            // profesorBindingSource
+            // 
+            profesorBindingSource.DataSource = typeof(Profesor);
+            // 
+            // instrumentoBindingSource
+            // 
+            instrumentoBindingSource.DataSource = typeof(Instrumento);
+            // 
+            // lblBuscar
+            // 
+            lblBuscar.AutoSize = true;
+            lblBuscar.Location = new Point(221, 391);
+            lblBuscar.Name = "lblBuscar";
+            lblBuscar.Size = new Size(111, 15);
+            lblBuscar.TabIndex = 10;
+            lblBuscar.Text = "Buscar por nombre:";
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Location = new Point(338, 388);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(382, 23);
+            txtBuscar.TabIndex = 9;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
+            // 
             // Uc_Instrumentos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(lblBuscar);
+            Controls.Add(txtBuscar);
             Controls.Add(btnAgregar);
             Controls.Add(btnEliminar);
             Controls.Add(btnActualizar);
@@ -152,6 +174,7 @@
             ((System.ComponentModel.ISupportInitialize)profesorBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)instrumentoBindingSource).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -168,5 +191,7 @@
         private DataGridViewTextBoxColumn categoriaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn marcaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
+        private Label lblBuscar;
+        private TextBox txtBuscar;
     }
 }
