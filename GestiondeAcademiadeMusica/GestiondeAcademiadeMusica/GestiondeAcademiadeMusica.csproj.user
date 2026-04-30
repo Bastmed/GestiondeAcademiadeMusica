@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Formularios\Alumnos\ActualizarAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Alumnos\AgregarAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\InicioSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Instrumentos\ActualizarInstrumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Instrumentos\AgregarInstrumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\MenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Profesores\ActualizarProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Profesores\AgregarProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\UserControls\Uc_Alumnos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Formularios\UserControls\Uc_Instrumentos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Formularios\UserControls\Uc_Profesores.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
